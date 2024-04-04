@@ -1,5 +1,7 @@
 #include "cell.h"
 #include <iostream>
+#include <unordered_set>
+using std::unordered_set;
 Cell::Cell(vector<string> tiles, int x, int y, Tileset& ts):
  tiles(tiles), enthropy(tiles.size()), 
  x(x), y(y), ts(ts)
@@ -29,32 +31,57 @@ vector<string> Cell::getTiles()
 {
     return tiles;
 }
+
 bool Cell::update(vector<string> neigh_tiles, int direction)
 {
     bool updated = false;
     int checking_side = rotateSide(direction); //Side to which we compare neighbouring tiles
-    vector<string> new_tiles;
+    unordered_set<string> new_tiles;
 
-    for(string tileID : tiles) //For each possible tile in this cell
+    for(string nTile : neigh_tiles) //We take each possible tile from neighbopuring cell
     {
-        for(string nTile : neigh_tiles) //We take each possible tile from neighbopuring cell
+        vector<string> rule = ts.getTile(nTile)->getRules().at(direction); // Take possible neighbours for possible neigh tile
+
+        for(string tileID : tiles) //For each possible tile in this cell
         {
-            vector<string> rule = ts.getTile(nTile)->getRules().at(direction); // Take possible neighbours for possible neigh tile
-
-            if(std::find(rule.begin(), rule.end(), tileID) != rule.end() && 
-            std::find(new_tiles.begin(), new_tiles.end(), tileID) == new_tiles.end()) //And if possible tile of this cell fullfills a rule 
-                new_tiles.push_back(tileID); //We take it to an updated cell
-
+            if(std::find(rule.begin(), rule.end(), tileID) != rule.end()) //And if possible tile of this cell fullfills a rule 
+                new_tiles.insert(tileID); //We take it to an updated cell
         }
     }
-    if(tiles == new_tiles)
+
+    if(tiles.size() == new_tiles.size() && std::all_of(new_tiles.begin(), new_tiles.end(), [this](const string& tile){ return std::find(tiles.begin(), tiles.end(), tile) != tiles.end(); }))
         return false;
 
-    tiles = new_tiles;
+    tiles.assign(new_tiles.begin(), new_tiles.end());
     enthropy = tiles.size();
     return true;
-    // for(int tile : tiles)
-    //     std::cout << tile << " ";
-    // std::cout << "\n";
-
 }
+// bool Cell::update(vector<string> neigh_tiles, int direction)
+// {
+//     bool updated = false;
+//     int checking_side = rotateSide(direction); //Side to which we compare neighbouring tiles
+//     vector<string> new_tiles;
+
+//     for(string tileID : tiles) //For each possible tile in this cell
+//     {
+//         for(string nTile : neigh_tiles) //We take each possible tile from neighbopuring cell
+//         {
+//             vector<string> rule = ts.getTile(nTile)->getRules().at(direction); // Take possible neighbours for possible neigh tile
+
+//             if(std::find(rule.begin(), rule.end(), tileID) != rule.end() && 
+//             std::find(new_tiles.begin(), new_tiles.end(), tileID) == new_tiles.end()) //And if possible tile of this cell fullfills a rule 
+//                 new_tiles.push_back(tileID); //We take it to an updated cell
+
+//         }
+//     }
+//     if(tiles == new_tiles)
+//         return false;
+
+//     tiles = new_tiles;
+//     enthropy = tiles.size();
+//     return true;
+//     // for(int tile : tiles)
+//     //     std::cout << tile << " ";
+//     // std::cout << "\n";
+
+// }

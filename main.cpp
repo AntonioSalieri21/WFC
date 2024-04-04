@@ -4,7 +4,7 @@
 #include "image_generator.h"
 #include <iostream>
 #include <memory>
-
+#include <chrono>
 using std::unique_ptr;
 int main(int argc, char *argv[])
 {
@@ -22,8 +22,14 @@ int main(int argc, char *argv[])
     do {
         grid.reset(new Grid(ts, gridWidth, gridHeight));
         WFCGenerator generator(*grid, ts);
+        auto start = std::chrono::high_resolution_clock::now();
+
         generator.collapseGrid();
 
+        auto end = std::chrono::high_resolution_clock::now(); // End timer
+        std::chrono::duration<double> elapsed = end - start;
+
+        std::cout << "Time taken by collapseGrid: " << elapsed.count() << " seconds\n";
         //grid.printGridEnthropy();
         //grid.printGridTiles();
         //grid->printGridCollapsedTiles();

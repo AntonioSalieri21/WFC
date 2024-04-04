@@ -36,7 +36,7 @@ void Tile::generateRules(vector<shared_ptr<Tile>>& tiles)
         for( shared_ptr<Tile> tile : tiles)
         {
             string checked_side = reverseString(tile->getSide(rotateSide(dir)));
-            
+            //string checked_side = tile->getSide(rotateSide(dir));
             if(checked_side == checking_side)
                 rules.at(dir).push_back(tile->getId());
 

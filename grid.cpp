@@ -42,9 +42,9 @@ int Grid::getY()
 
 bool Grid::isCollapsed()
 {
-    for(vector<Cell> row : cells)
+    for(vector<Cell>& row : cells)
     {
-        for(Cell cell : row)
+        for(Cell& cell : row)
             if(cell.getEnthropy() != 1) return false; 
     }
     return true;

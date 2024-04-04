@@ -42,43 +42,36 @@ void WFCGenerator::updateGrid(Cell* changed_cell)
         Cell* current_cell = cells_to_update.front();
         cells_to_update.pop();
 
-        vector<Cell*> neighbors(4);
-        neighbors.at(UP) = grid.getCell(current_cell->getX(), current_cell->getY()-1);
-        neighbors.at(RIGHT) = grid.getCell(current_cell->getX()+1, current_cell->getY());
-        neighbors.at(DOWN) = grid.getCell(current_cell->getX(), current_cell->getY()+1);
-        neighbors.at(LEFT) = grid.getCell(current_cell->getX()-1, current_cell->getY());
-
         for (int i : const_dir) {
-            if (neighbors.at(i) == nullptr || neighbors.at(i)->getEnthropy() <= 1)
+            Cell* neighbor = nullptr;
+            switch (i) {
+                case UP:
+                    neighbor = grid.getCell(current_cell->getX(), current_cell->getY()-1);
+                    break;
+                case RIGHT:
+                    neighbor = grid.getCell(current_cell->getX()+1, current_cell->getY());
+                    break;
+                case DOWN:
+                    neighbor = grid.getCell(current_cell->getX(), current_cell->getY()+1);
+                    break;
+                case LEFT:
+                    neighbor = grid.getCell(current_cell->getX()-1, current_cell->getY());
+                    break;
+            }
+
+            if (neighbor == nullptr || neighbor->getEnthropy() <= 1)
                 continue;
 
-            bool updated = neighbors.at(i)->update(current_cell->getTiles(), i);
+            bool updated = neighbor->update(current_cell->getTiles(), i);
 
             if (updated) {
-                cells_to_update.push(neighbors.at(i));
+                cells_to_update.push(neighbor);
             }
         }
     }
 }
 
-// void WFCGenerator::updateGrid(Cell* changed_cell)
-// {
-//     vector<Cell*> neigh(4);
-//     neigh.at(UP) = grid.getCell(changed_cell->getX(), changed_cell->getY()-1);
-//     neigh.at(RIGHT) = grid.getCell(changed_cell->getX()+1, changed_cell->getY());
-//     neigh.at(DOWN) = grid.getCell(changed_cell->getX(), changed_cell->getY()+1);
-//     neigh.at(LEFT) = grid.getCell(changed_cell->getX()-1, changed_cell->getY());
-//     for(int i : const_dir)
-//     {    
-//         if(neigh.at(i) == nullptr || neigh.at(i)->getEnthropy() <= 1)
-//             continue;
 
-//         neigh.at(i)->update(changed_cell->getTiles(), i);
-
-
-//     }
- 
-// }
 
 Cell* WFCGenerator::initGrid()
 {
