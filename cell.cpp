@@ -1,6 +1,8 @@
 #include "cell.h"
 #include <iostream>
-Cell::Cell(vector<int> tiles): tiles(tiles), enthropy(tiles.size())
+Cell::Cell(vector<int> tiles, int x, int y, Tileset& ts):
+ tiles(tiles), enthropy(tiles.size()), 
+ x(x), y(y), ts(ts)
 {
 
 }
@@ -26,4 +28,30 @@ void Cell::collapse()
 vector<int> Cell::getTiles()
 {
     return tiles;
+}
+void Cell::update(vector<string> rules, int direction)
+{
+
+    int checking_side = rotateSide(direction);
+    vector<int> new_tiles;
+    for(int tileID : tiles)
+    {
+        bool satisfied_check = false;
+        shared_ptr<Tile> tile = ts.getTile(tileID);
+        string side = tile->getSide(checking_side);
+        for(string rule : rules)
+        {
+            if(rule == side)
+            {
+                satisfied_check = true;
+                break;
+            }
+        }
+        if(satisfied_check)
+            new_tiles.push_back(tileID);
+    }
+    tiles = new_tiles;
+    enthropy = tiles.size();
+    std::cout << enthropy << "\n";
+
 }

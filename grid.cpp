@@ -12,7 +12,7 @@ Grid::Grid(Tileset& ts, int x, int y): x(x), y(y)
             {
                 tiles.push_back(tile->getId());
             }
-            row.push_back(Cell(tiles));
+            row.push_back(Cell(tiles, j,i, ts));
         }
         cells.push_back(row);
     }
@@ -38,4 +38,29 @@ int Grid::getX()
 int Grid::getY()
 {
     return y;
+}
+
+void Grid::printGridEnthropy()
+{
+    for(int i = 0; i < 4; i++)
+    {
+        for(int j = 0; j < 4; j++)
+            std::cout << getCell(i,j)->getTiles().size() << " ";
+        std::cout << "\n";
+    }
+}
+void Grid::printGridTiles()
+{
+    for(vector<Cell> row : cells)
+    {
+        for(Cell cell : row)
+        {
+            std::cout << "X: " << cell.getX();
+            std::cout << " Y: " << cell.getY();
+            std::cout << "  :  ";
+            for(int id : cell.getTiles())
+                std::cout << id << " ";
+            std::cout << "\n";
+        }
+    }
 }

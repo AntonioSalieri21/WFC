@@ -4,13 +4,22 @@
 #include "tileset.h"
 #include "grid.h"
 #include <random>
+#include "sides.h"
+
 class WFCGenerator
 {
 
-    static void initGrid(Grid& grid);
+    Grid& grid;
+    Tileset& ts;
+
+    Cell* initGrid();
+    void updateGrid(Cell* changed_cell);
 
 public:
-    static void collapseGrid(Grid& grid, Tileset& ts);
+    WFCGenerator(Grid& grid, Tileset& ts);
+    ~WFCGenerator() = default;
+
+    void collapseGrid();
 
 };
 

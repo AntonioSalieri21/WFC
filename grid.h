@@ -22,6 +22,9 @@ public:
     int getX();
     int getY();
 
+    void printGridEnthropy();
+    void printGridTiles();
+
 };
 
 #endif

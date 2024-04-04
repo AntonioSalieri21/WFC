@@ -133,7 +133,39 @@ CMakeFiles/WFCGenerator.dir/grid.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_numeric.h \
  /usr/include/c++/13.2.1/pstl/glue_numeric_defs.h \
  /usr/include/c++/13.2.1/pstl/execution_defs.h \
- /home/salieri/Documents/GitHub/WFC/tileset.h \
+ /home/salieri/Documents/GitHub/WFC/sides.h \
+ /usr/include/c++/13.2.1/memory \
+ /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
+ /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/13.2.1/bits/align.h \
+ /usr/include/c++/13.2.1/bits/unique_ptr.h \
+ /usr/include/c++/13.2.1/bits/shared_ptr.h \
+ /usr/include/c++/13.2.1/bits/shared_ptr_base.h \
+ /usr/include/c++/13.2.1/typeinfo \
+ /usr/include/c++/13.2.1/bits/allocated_ptr.h \
+ /usr/include/c++/13.2.1/ext/aligned_buffer.h \
+ /usr/include/c++/13.2.1/ext/atomicity.h \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/gthr.h \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/bits/sched.h \
+ /usr/include/bits/types/struct_sched_param.h /usr/include/bits/cpu-set.h \
+ /usr/include/time.h /usr/include/bits/time.h /usr/include/bits/timex.h \
+ /usr/include/bits/types/struct_tm.h \
+ /usr/include/bits/types/struct_itimerspec.h /usr/include/bits/setjmp.h \
+ /usr/include/bits/types/struct___jmp_buf_tag.h \
+ /usr/include/bits/pthread_stack_min-dynamic.h \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h \
+ /usr/include/sys/single_threaded.h \
+ /usr/include/c++/13.2.1/ext/concurrence.h \
+ /usr/include/c++/13.2.1/exception \
+ /usr/include/c++/13.2.1/bits/exception_ptr.h \
+ /usr/include/c++/13.2.1/bits/cxxabi_init_exception.h \
+ /usr/include/c++/13.2.1/bits/nested_exception.h \
+ /usr/include/c++/13.2.1/bits/shared_ptr_atomic.h \
+ /usr/include/c++/13.2.1/bits/atomic_base.h \
+ /usr/include/c++/13.2.1/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/13.2.1/backward/auto_ptr.h \
+ /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
  /home/salieri/Documents/GitHub/WFC/tile.h \
  /usr/include/opencv4/opencv2/opencv.hpp \
  /usr/include/opencv4/opencv2/opencv_modules.hpp \
@@ -154,49 +186,17 @@ CMakeFiles/WFCGenerator.dir/grid.cpp.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/syslimits.h \
  /usr/include/limits.h /usr/include/bits/posix1_lim.h \
  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
- /usr/include/bits/pthread_stack_min-dynamic.h \
  /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
  /usr/include/bits/uio_lim.h /usr/include/c++/13.2.1/algorithm \
  /usr/include/c++/13.2.1/bits/stl_algo.h \
  /usr/include/c++/13.2.1/bits/algorithmfwd.h \
  /usr/include/c++/13.2.1/bits/stl_heap.h \
- /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
  /usr/include/c++/13.2.1/pstl/glue_algorithm_defs.h \
  /usr/include/opencv4/opencv2/core/cvstd.hpp \
  /usr/include/c++/13.2.1/cstring /usr/include/string.h \
  /usr/include/strings.h /usr/include/c++/13.2.1/utility \
  /usr/include/c++/13.2.1/bits/stl_relops.h \
  /usr/include/opencv4/opencv2/core/cvstd_wrapper.hpp \
- /usr/include/c++/13.2.1/memory \
- /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h \
- /usr/include/c++/13.2.1/bits/align.h \
- /usr/include/c++/13.2.1/bits/unique_ptr.h \
- /usr/include/c++/13.2.1/bits/shared_ptr.h \
- /usr/include/c++/13.2.1/bits/shared_ptr_base.h \
- /usr/include/c++/13.2.1/typeinfo \
- /usr/include/c++/13.2.1/bits/allocated_ptr.h \
- /usr/include/c++/13.2.1/ext/aligned_buffer.h \
- /usr/include/c++/13.2.1/ext/atomicity.h \
- /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/gthr.h \
- /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/gthr-default.h \
- /usr/include/pthread.h /usr/include/sched.h /usr/include/bits/sched.h \
- /usr/include/bits/types/struct_sched_param.h /usr/include/bits/cpu-set.h \
- /usr/include/time.h /usr/include/bits/time.h /usr/include/bits/timex.h \
- /usr/include/bits/types/struct_tm.h \
- /usr/include/bits/types/struct_itimerspec.h /usr/include/bits/setjmp.h \
- /usr/include/bits/types/struct___jmp_buf_tag.h \
- /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h \
- /usr/include/sys/single_threaded.h \
- /usr/include/c++/13.2.1/ext/concurrence.h \
- /usr/include/c++/13.2.1/exception \
- /usr/include/c++/13.2.1/bits/exception_ptr.h \
- /usr/include/c++/13.2.1/bits/cxxabi_init_exception.h \
- /usr/include/c++/13.2.1/bits/nested_exception.h \
- /usr/include/c++/13.2.1/bits/shared_ptr_atomic.h \
- /usr/include/c++/13.2.1/bits/atomic_base.h \
- /usr/include/c++/13.2.1/bits/atomic_lockfree_defines.h \
- /usr/include/c++/13.2.1/backward/auto_ptr.h \
- /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
  /usr/include/opencv4/opencv2/core/neon_utils.hpp \
  /usr/include/opencv4/opencv2/core/vsx_utils.hpp /usr/include/assert.h \
  /usr/include/opencv4/opencv2/core/check.hpp \
@@ -358,6 +358,7 @@ CMakeFiles/WFCGenerator.dir/grid.cpp.o: \
  /usr/include/opencv4/opencv2/video/tracking.hpp \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
  /home/salieri/Documents/GitHub/WFC/tileinfo.h \
+ /home/salieri/Documents/GitHub/WFC/tileset.h \
  /home/salieri/Documents/GitHub/WFC/tilesetconfig.h \
  /usr/include/nlohmann/json.hpp /usr/include/c++/13.2.1/iterator \
  /usr/include/c++/13.2.1/bits/stream_iterator.h \

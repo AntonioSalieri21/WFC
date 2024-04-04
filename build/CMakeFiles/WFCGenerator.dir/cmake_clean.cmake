@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/WFCGenerator.dir/grid.cpp.o.d"
   "CMakeFiles/WFCGenerator.dir/main.cpp.o"
   "CMakeFiles/WFCGenerator.dir/main.cpp.o.d"
+  "CMakeFiles/WFCGenerator.dir/sides.cpp.o"
+  "CMakeFiles/WFCGenerator.dir/sides.cpp.o.d"
   "CMakeFiles/WFCGenerator.dir/tile.cpp.o"
   "CMakeFiles/WFCGenerator.dir/tile.cpp.o.d"
   "CMakeFiles/WFCGenerator.dir/tileset.cpp.o"

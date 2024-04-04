@@ -6,14 +6,10 @@ int main(int argc, char *argv[])
 {
     Tileset ts("../SimpleTiles/config.json");
     Grid grid(ts, 4, 4);
-    WFCGenerator::collapseGrid(grid, ts);
+    WFCGenerator generator(grid, ts);
+    generator.collapseGrid();
 
-    for(int i = 0; i < 4; i++)
-    {
-        for(int j = 0; j < 4; j++)
-            std::cout << grid.getCell(i,j)->getTiles().size() << " ";
-        std::cout << "\n";
-    }
-
+    grid.printGridEnthropy();
+    grid.printGridTiles();
     return 0;
 }

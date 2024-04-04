@@ -201,6 +201,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+sides.o: sides.cpp.o
+.PHONY : sides.o
+
+# target to build an object file
+sides.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/sides.cpp.o
+.PHONY : sides.cpp.o
+
+sides.i: sides.cpp.i
+.PHONY : sides.i
+
+# target to preprocess a source file
+sides.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/sides.cpp.i
+.PHONY : sides.cpp.i
+
+sides.s: sides.cpp.s
+.PHONY : sides.s
+
+# target to generate assembly for a file
+sides.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/sides.cpp.s
+.PHONY : sides.cpp.s
+
 tile.o: tile.cpp.o
 .PHONY : tile.o
 
@@ -315,6 +339,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... sides.o"
+	@echo "... sides.i"
+	@echo "... sides.s"
 	@echo "... tile.o"
 	@echo "... tile.i"
 	@echo "... tile.s"

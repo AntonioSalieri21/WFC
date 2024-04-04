@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/salieri/Documents/GitHub/WFC/cell.cpp" "CMakeFiles/WFCGenerator.dir/cell.cpp.o" "gcc" "CMakeFiles/WFCGenerator.dir/cell.cpp.o.d"
   "/home/salieri/Documents/GitHub/WFC/grid.cpp" "CMakeFiles/WFCGenerator.dir/grid.cpp.o" "gcc" "CMakeFiles/WFCGenerator.dir/grid.cpp.o.d"
   "/home/salieri/Documents/GitHub/WFC/main.cpp" "CMakeFiles/WFCGenerator.dir/main.cpp.o" "gcc" "CMakeFiles/WFCGenerator.dir/main.cpp.o.d"
+  "/home/salieri/Documents/GitHub/WFC/sides.cpp" "CMakeFiles/WFCGenerator.dir/sides.cpp.o" "gcc" "CMakeFiles/WFCGenerator.dir/sides.cpp.o.d"
   "/home/salieri/Documents/GitHub/WFC/tile.cpp" "CMakeFiles/WFCGenerator.dir/tile.cpp.o" "gcc" "CMakeFiles/WFCGenerator.dir/tile.cpp.o.d"
   "/home/salieri/Documents/GitHub/WFC/tileset.cpp" "CMakeFiles/WFCGenerator.dir/tileset.cpp.o" "gcc" "CMakeFiles/WFCGenerator.dir/tileset.cpp.o.d"
   "/home/salieri/Documents/GitHub/WFC/tilesetconfig.cpp" "CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o" "gcc" "CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o.d"
