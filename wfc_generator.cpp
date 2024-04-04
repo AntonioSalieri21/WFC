@@ -11,8 +11,16 @@ void WFCGenerator::collapseGrid()
 {
 
     Cell* changed_cell = initGrid();
-    std::cout<<changed_cell->getX() << std::endl;
-    updateGrid(changed_cell);
+    //std::cout<<changed_cell->getX() << std::endl;
+    while(!grid.isCollapsed())
+    {
+        updateGrid(changed_cell);
+        changed_cell = collapseLeastEnthropy();
+        if(changed_cell == nullptr)
+            break;
+        //grid.printGridEnthropy();
+    }
+    
 
 
 }
@@ -23,17 +31,17 @@ void WFCGenerator::updateGrid(Cell* changed_cell)
     queue<Cell*> order;
     order.push(changed_cell);
 
-    std::cout << order.front() << "\n";
+    //std::cout << order.front() << "\n";
     while(order.size() > 0)
     {
         Cell* current_cell = order.front();
         order.pop();
 
         vector<Cell*> neigh(4);
-        neigh[0] = grid.getCell(changed_cell->getX(), changed_cell->getY()-1);
-        neigh[1] = grid.getCell(changed_cell->getX()+1, changed_cell->getY());
-        neigh[2] = grid.getCell(changed_cell->getX(), changed_cell->getY()+1);
-        neigh[3] = grid.getCell(changed_cell->getX()-1, changed_cell->getY());
+        neigh.at(UP) = grid.getCell(changed_cell->getX(), changed_cell->getY()-1);
+        neigh.at(RIGHT) = grid.getCell(changed_cell->getX()+1, changed_cell->getY());
+        neigh.at(DOWN) = grid.getCell(changed_cell->getX(), changed_cell->getY()+1);
+        neigh.at(LEFT) = grid.getCell(changed_cell->getX()-1, changed_cell->getY());
 
         // std::cout << neigh.at(0)->getTiles().size() << "\n";
         // std::cout << neigh.at(RIGHT)->getTiles().size() << "\n";
@@ -41,6 +49,7 @@ void WFCGenerator::updateGrid(Cell* changed_cell)
         // std::cout << neigh.at(LEFT)->getTiles().size() << "\n";
         for(int i : const_dir)
         {
+            //int side = rotateSide(i);
             if(neigh.at(i) == nullptr)
                 continue;
 
@@ -53,11 +62,12 @@ void WFCGenerator::updateGrid(Cell* changed_cell)
                 shared_ptr<Tile> tile = ts.getTile(tileID);
                 rules.push_back(tile->getSide(i));
             }
-
+            
+            //std::cout << "Checking side: " << i << " ";
             neigh.at(i)->update(rules, i);
             visited.push_back(neigh.at(i));
             order.push(neigh.at(i));
-            std::cout << order.front() << "\n";
+            //std::cout << order.front() << "\n";
 
         }
 
@@ -87,4 +97,15 @@ Cell* WFCGenerator::initGrid()
 
     return collapsed_cell;
 
+}
+
+Cell* WFCGenerator::collapseLeastEnthropy()
+{
+    Cell* res = grid.getLeastEnthropy();
+    //std::cout << res << "\n";
+    if(res == nullptr)
+        return res;
+    res->collapse();
+
+    return res;
 }

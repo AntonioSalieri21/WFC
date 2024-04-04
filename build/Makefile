@@ -177,6 +177,30 @@ grid.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/grid.cpp.s
 .PHONY : grid.cpp.s
 
+image_generator.o: image_generator.cpp.o
+.PHONY : image_generator.o
+
+# target to build an object file
+image_generator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/image_generator.cpp.o
+.PHONY : image_generator.cpp.o
+
+image_generator.i: image_generator.cpp.i
+.PHONY : image_generator.i
+
+# target to preprocess a source file
+image_generator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/image_generator.cpp.i
+.PHONY : image_generator.cpp.i
+
+image_generator.s: image_generator.cpp.s
+.PHONY : image_generator.s
+
+# target to generate assembly for a file
+image_generator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/image_generator.cpp.s
+.PHONY : image_generator.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -336,6 +360,9 @@ help:
 	@echo "... grid.o"
 	@echo "... grid.i"
 	@echo "... grid.s"
+	@echo "... image_generator.o"
+	@echo "... image_generator.i"
+	@echo "... image_generator.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

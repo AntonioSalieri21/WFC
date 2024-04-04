@@ -26,6 +26,7 @@ public:
     void collapse();
     void update(vector<string> rules, int direction);
     vector<int> getTiles();
+    int getEnthropy(){return enthropy;}
 
     int getX() {return x;}
     int getY() {return y;}

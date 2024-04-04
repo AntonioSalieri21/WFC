@@ -2,12 +2,12 @@
 #include "sides.h"
 Tile::Tile(TileInfo info, int ID) : sides(info.sides), ID(ID), address(info.tile_path)
 {
-    // image = cv::imread(info.tile_path, cv::IMREAD_COLOR);
-    // if(!image.data) {
-    //     std::cout << "Could not open or find the image." << std::endl;
-    // }
+    image = cv::imread(info.tile_path, cv::IMREAD_COLOR);
+    if(!image.data) {
+        std::cout << "Could not open or find the image." << std::endl;
+    }
     rules = vector< vector<int> >(4);
-    
+    std::cout << "ID " << ID << ": " << address << "\n";
 }
 
 Tile::~Tile()

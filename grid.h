@@ -9,8 +9,8 @@ using std::vector;
 
 class Grid
 {
-    int x;
-    int y;
+    int xSize; // column
+    int ySize; // row
     vector<vector<Cell>> cells;
 
 public:
@@ -21,9 +21,14 @@ public:
     Cell* getCell(int x, int y);
     int getX();
     int getY();
+    bool isCollapsed();
+    bool isValid();
+    Cell* getLeastEnthropy();
+    vector<vector<Cell>>& getCells(){return cells;}
 
     void printGridEnthropy();
     void printGridTiles();
+    void printGridCollapsedTiles();
 
 };
 

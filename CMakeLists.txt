@@ -7,7 +7,7 @@ find_package(OpenCV REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(WFCGenerator main.cpp tile.cpp tileset.cpp tilesetconfig.cpp wfc_generator.cpp grid.cpp cell.cpp sides.cpp)
+add_executable(WFCGenerator main.cpp tile.cpp tileset.cpp tilesetconfig.cpp wfc_generator.cpp grid.cpp cell.cpp sides.cpp image_generator.cpp)
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 

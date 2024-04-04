@@ -14,6 +14,7 @@ class WFCGenerator
 
     Cell* initGrid();
     void updateGrid(Cell* changed_cell);
+    Cell* collapseLeastEnthropy();
 
 public:
     WFCGenerator(Grid& grid, Tileset& ts);

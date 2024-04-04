@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/WFCGenerator.dir/cell.cpp.o.d"
   "CMakeFiles/WFCGenerator.dir/grid.cpp.o"
   "CMakeFiles/WFCGenerator.dir/grid.cpp.o.d"
+  "CMakeFiles/WFCGenerator.dir/image_generator.cpp.o"
+  "CMakeFiles/WFCGenerator.dir/image_generator.cpp.o.d"
   "CMakeFiles/WFCGenerator.dir/main.cpp.o"
   "CMakeFiles/WFCGenerator.dir/main.cpp.o.d"
   "CMakeFiles/WFCGenerator.dir/sides.cpp.o"

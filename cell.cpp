@@ -33,6 +33,7 @@ void Cell::update(vector<string> rules, int direction)
 {
 
     int checking_side = rotateSide(direction);
+    //std::cout << "Checked side: " << checking_side << "\n";
     vector<int> new_tiles;
     for(int tileID : tiles)
     {
@@ -52,6 +53,10 @@ void Cell::update(vector<string> rules, int direction)
     }
     tiles = new_tiles;
     enthropy = tiles.size();
-    std::cout << enthropy << "\n";
+    //std::cout << enthropy << "\n";
+
+    // for(int tile : tiles)
+    //     std::cout << tile << " ";
+    // std::cout << "\n";
 
 }

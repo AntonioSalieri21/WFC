@@ -1,11 +1,11 @@
 #include "grid.h"
 
-Grid::Grid(Tileset& ts, int x, int y): x(x), y(y)
+Grid::Grid(Tileset& ts, int x, int y): xSize(x), ySize(y)
 {
-    for(int i = 0; i < y; i++)
+    for(int i = 0; i < y; i++) // row
     {
         vector<Cell> row;
-        for(int j = 0; j < x; j++)
+        for(int j = 0; j < x; j++) // column
         {
             vector<int> tiles;
             for(shared_ptr tile : ts.getTiles())
@@ -21,10 +21,10 @@ Grid::Grid(Tileset& ts, int x, int y): x(x), y(y)
 
 Cell* Grid::getCell(int x, int y)
 {
-    if(0 <= x < cells.size())
+    if(y >= 0 & y < cells.size())
     {
-        if( 0 <= y < cells.at(x).size())
-            return &(cells.at(x).at(y));
+        if( x >= 0 && x < cells.at(y).size())
+            return &(cells.at(y).at(x));
     }
 
     return nullptr;
@@ -32,20 +32,64 @@ Cell* Grid::getCell(int x, int y)
 
 int Grid::getX()
 {
-    return x;
+    return xSize;
 }
 
 int Grid::getY()
 {
-    return y;
+    return ySize;
 }
+
+bool Grid::isCollapsed()
+{
+    for(vector<Cell> row : cells)
+    {
+        for(Cell cell : row)
+            if(cell.getEnthropy() != 1) return false; 
+    }
+    return true;
+}
+
+Cell* Grid::getLeastEnthropy()
+{
+    Cell* res = nullptr;
+    //std::cout << res << "\n";
+    for(int i = 0; i < ySize; i++)
+    {
+        for(int j = 0; j < xSize; j++)
+        {
+            Cell* tmp = getCell(j,i);
+            if(tmp->getEnthropy() > 1)
+            {
+                if(res == nullptr)
+                    res = tmp;
+                else if (res->getEnthropy() > tmp->getEnthropy())
+                    res = tmp;
+            }
+        }
+    }
+    //std::cout << res << "\n";
+    return res;
+
+}
+
+bool Grid::isValid()
+{
+    for(vector<Cell> row : cells)
+    {
+        for(Cell cell : row)
+            if(cell.getEnthropy() < 1) return false; 
+    }
+    return true;
+}
+
 
 void Grid::printGridEnthropy()
 {
-    for(int i = 0; i < 4; i++)
+    for(int i = 0; i < ySize; i++)
     {
-        for(int j = 0; j < 4; j++)
-            std::cout << getCell(i,j)->getTiles().size() << " ";
+        for(int j = 0; j < xSize; j++)
+            std::cout << getCell(j,i)->getEnthropy() << " ";
         std::cout << "\n";
     }
 }
@@ -62,5 +106,21 @@ void Grid::printGridTiles()
                 std::cout << id << " ";
             std::cout << "\n";
         }
+    }
+}
+
+void Grid::printGridCollapsedTiles()
+{
+    for(int i = 0; i < ySize; i++)
+    {
+        for(int j = 0; j < xSize; j++)
+            //std::cout << getCell(i,j)->getTiles().size() << " ";
+        {
+            if(getCell(j,i)->getEnthropy() == 1)
+                std::cout << getCell(j,i)->getTiles().at(0) << " ";
+            else
+                std::cout << "N ";
+        }
+        std::cout << "\n";
     }
 }
