@@ -1,0 +1,59 @@
+{
+    "tiles":{
+        "0": {
+            "address": "../Tiles/circuit/0.png",
+            "sides": ["0","0","0","0"],
+            "rotate": false
+        },
+        "1": {
+            "address": "../Tiles/circuit/1.png",
+            "sides": ["1","1","1","1"],
+            "rotate": false
+        },
+        "2": {
+            "address": "../Tiles/circuit/2.png",
+            "sides": ["1","2","1","1"],
+            "rotate": true
+        },
+        "3": {
+            "address": "../Tiles/circuit/3.png",
+            "sides": ["1","3","1","5"],
+            "rotate": true
+        },
+        "6": {
+            "address": "../Tiles/circuit/6.png",
+            "sides": ["1","2","1","2"],
+            "rotate": true
+        },
+        "7": {
+            "address": "../Tiles/circuit/7.png",
+            "sides": ["3","2","3","2"],
+            "rotate": true
+        },
+        "8": {
+            "address": "../Tiles/circuit/8.png",
+            "sides": ["3","1","2","1"],
+            "rotate": true
+        },
+        "9": {
+            "address": "../Tiles/circuit/9.png",
+            "sides": ["2","2","1","2"],
+            "rotate": true
+        },
+        "10": {
+            "address": "../Tiles/circuit/10.png",
+            "sides": ["2","2","2","2"],
+            "rotate": true
+        },
+        "11": {
+            "address": "../Tiles/circuit/11.png",
+            "sides": ["2","2","1","1"],
+            "rotate": true
+        },
+        "12": {
+            "address": "../Tiles/circuit/12.png",
+            "sides": ["1","2","1","2"],
+            "rotate": true
+        }
+    }
+}

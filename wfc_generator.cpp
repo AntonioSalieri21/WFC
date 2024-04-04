@@ -11,70 +11,74 @@ void WFCGenerator::collapseGrid()
 {
 
     Cell* changed_cell = initGrid();
-    //std::cout<<changed_cell->getX() << std::endl;
+
+    int steps = 0;
+
     while(!grid.isCollapsed())
     {
         updateGrid(changed_cell);
+
+        std::cout << "Step: " << steps << "\n";
+        steps++;
+        grid.printGridEnthropy();
+
         changed_cell = collapseLeastEnthropy();
         if(changed_cell == nullptr)
             break;
-        //grid.printGridEnthropy();
+
+
     }
-    
+    std::cout << std::endl;
 
 
 }
 
 void WFCGenerator::updateGrid(Cell* changed_cell)
 {
-    vector<Cell*> visited; //REPLACE WITH HASH MAP
-    queue<Cell*> order;
-    order.push(changed_cell);
+    std::queue<Cell*> cells_to_update;
+    cells_to_update.push(changed_cell);
 
-    //std::cout << order.front() << "\n";
-    while(order.size() > 0)
-    {
-        Cell* current_cell = order.front();
-        order.pop();
+    while (!cells_to_update.empty()) {
+        Cell* current_cell = cells_to_update.front();
+        cells_to_update.pop();
 
-        vector<Cell*> neigh(4);
-        neigh.at(UP) = grid.getCell(changed_cell->getX(), changed_cell->getY()-1);
-        neigh.at(RIGHT) = grid.getCell(changed_cell->getX()+1, changed_cell->getY());
-        neigh.at(DOWN) = grid.getCell(changed_cell->getX(), changed_cell->getY()+1);
-        neigh.at(LEFT) = grid.getCell(changed_cell->getX()-1, changed_cell->getY());
+        vector<Cell*> neighbors(4);
+        neighbors.at(UP) = grid.getCell(current_cell->getX(), current_cell->getY()-1);
+        neighbors.at(RIGHT) = grid.getCell(current_cell->getX()+1, current_cell->getY());
+        neighbors.at(DOWN) = grid.getCell(current_cell->getX(), current_cell->getY()+1);
+        neighbors.at(LEFT) = grid.getCell(current_cell->getX()-1, current_cell->getY());
 
-        // std::cout << neigh.at(0)->getTiles().size() << "\n";
-        // std::cout << neigh.at(RIGHT)->getTiles().size() << "\n";
-        // std::cout << neigh.at(DOWN)->getTiles().size() << "\n";
-        // std::cout << neigh.at(LEFT)->getTiles().size() << "\n";
-        for(int i : const_dir)
-        {
-            //int side = rotateSide(i);
-            if(neigh.at(i) == nullptr)
+        for (int i : const_dir) {
+            if (neighbors.at(i) == nullptr || neighbors.at(i)->getEnthropy() <= 1)
                 continue;
 
-            if(std::find(visited.begin(), visited.end(), neigh.at(i)) != visited.end())
-                continue;
+            bool updated = neighbors.at(i)->update(current_cell->getTiles(), i);
 
-            vector<string> rules;
-            for(int tileID : current_cell->getTiles())
-            {
-                shared_ptr<Tile> tile = ts.getTile(tileID);
-                rules.push_back(tile->getSide(i));
+            if (updated) {
+                cells_to_update.push(neighbors.at(i));
             }
-            
-            //std::cout << "Checking side: " << i << " ";
-            neigh.at(i)->update(rules, i);
-            visited.push_back(neigh.at(i));
-            order.push(neigh.at(i));
-            //std::cout << order.front() << "\n";
-
         }
-
-
     }
-
 }
+
+// void WFCGenerator::updateGrid(Cell* changed_cell)
+// {
+//     vector<Cell*> neigh(4);
+//     neigh.at(UP) = grid.getCell(changed_cell->getX(), changed_cell->getY()-1);
+//     neigh.at(RIGHT) = grid.getCell(changed_cell->getX()+1, changed_cell->getY());
+//     neigh.at(DOWN) = grid.getCell(changed_cell->getX(), changed_cell->getY()+1);
+//     neigh.at(LEFT) = grid.getCell(changed_cell->getX()-1, changed_cell->getY());
+//     for(int i : const_dir)
+//     {    
+//         if(neigh.at(i) == nullptr || neigh.at(i)->getEnthropy() <= 1)
+//             continue;
+
+//         neigh.at(i)->update(changed_cell->getTiles(), i);
+
+
+//     }
+ 
+// }
 
 Cell* WFCGenerator::initGrid()
 {

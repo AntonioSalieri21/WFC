@@ -2499,6 +2499,7 @@ CMakeFiles/WFCGenerator.dir/tile.cpp.o: /home/salieri/Documents/GitHub/WFC/tile.
   /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/xmmintrin.h
 
 CMakeFiles/WFCGenerator.dir/tileset.cpp.o: /home/salieri/Documents/GitHub/WFC/tileset.cpp \
+  /home/salieri/Documents/GitHub/WFC/sides.h \
   /home/salieri/Documents/GitHub/WFC/tile.h \
   /home/salieri/Documents/GitHub/WFC/tileinfo.h \
   /home/salieri/Documents/GitHub/WFC/tileset.h \

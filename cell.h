@@ -13,19 +13,19 @@ class Cell
 {
 
     int enthropy;
-    vector<int> tiles;
+    vector<string> tiles;
     int x;
     int y;
     Tileset& ts;
 
 public:
     Cell() = default;
-    Cell(vector<int> tiles, int x, int y, Tileset& ts);
+    Cell(vector<string> tiles, int x, int y, Tileset& ts);
     ~Cell() = default;
     
     void collapse();
-    void update(vector<string> rules, int direction);
-    vector<int> getTiles();
+    bool update(vector<string> neigh_tiles, int direction);
+    vector<string> getTiles();
     int getEnthropy(){return enthropy;}
 
     int getX() {return x;}

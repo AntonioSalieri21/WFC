@@ -13,18 +13,19 @@ class Tile
 {
     cv::Mat image;
     vector<string> sides;
-    vector< vector<int> > rules;
+    vector< vector<string> > rules;
     string address; //DEBUG
-    int ID;
+    string ID;
 public:
     Tile() = default;
-    Tile(TileInfo info, int ID);
+    Tile(TileInfo info);
     ~Tile();
 
     void generateRules(vector<shared_ptr<Tile>>& tiles);
     string getSide(int side);
-    int getId();
+    string getId();
     cv::Mat& getImage(){return image;}
+    vector<vector<string>>& getRules(){return rules;}
 
     std::ostream& operator<<(std::ostream& os);
 

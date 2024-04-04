@@ -9,6 +9,7 @@ constexpr int DOWN = 2; //3
 constexpr int LEFT = 3;//4
 
 int rotateSide(int side);
+int rotate90(int side);
 
 extern std::vector<int> const_dir; 
 

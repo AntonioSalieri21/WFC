@@ -1,12 +1,12 @@
 #include "tile.h"
 #include "sides.h"
-Tile::Tile(TileInfo info, int ID) : sides(info.sides), ID(ID), address(info.tile_path)
+Tile::Tile(TileInfo info) : sides(info.sides), ID(info.ID), address(info.tile_path)
 {
     image = cv::imread(info.tile_path, cv::IMREAD_COLOR);
     if(!image.data) {
         std::cout << "Could not open or find the image." << std::endl;
     }
-    rules = vector< vector<int> >(4);
+    rules = vector< vector<string> >(4);
     std::cout << "ID " << ID << ": " << address << "\n";
 }
 
@@ -39,9 +39,9 @@ void Tile::generateRules(vector<shared_ptr<Tile>>& tiles)
 
     }
 
-    // for(vector<int> rule: rules)
+    // for(vector<string> rule: rules)
     // {
-    //     for(int tile : rule)
+    //     for(string tile : rule)
     //         std::cout << tile << "\n";
 
     //     std::cout << "\n"; 
@@ -56,7 +56,7 @@ string Tile::getSide(int side)
     return sides.at(side);
 }
 
-int Tile::getId()
+string Tile::getId()
 {
     return ID;
 }
@@ -66,7 +66,7 @@ std::ostream& Tile::operator<<(std::ostream& os)
     os << ID << ": \n";
     for(int dir : const_dir)
     {
-        for(int tile:  rules.at(dir))
+        for(string tile:  rules.at(dir))
         {
             os << tile << " ";
         }

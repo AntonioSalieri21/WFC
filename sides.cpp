@@ -9,4 +9,8 @@ int rotateSide(int side)
     return res;
 
 }
+int rotate90(int side)
+{
+    return (side + 1) % 4;
+}
 std::vector<int> const_dir {UP, RIGHT, DOWN, LEFT}; 

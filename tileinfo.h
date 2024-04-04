@@ -10,6 +10,8 @@ struct TileInfo
 
     string tile_path;
     vector<string> sides;
+    string ID;
+    bool rotate = true;
 
 };
 

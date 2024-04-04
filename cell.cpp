@@ -1,6 +1,6 @@
 #include "cell.h"
 #include <iostream>
-Cell::Cell(vector<int> tiles, int x, int y, Tileset& ts):
+Cell::Cell(vector<string> tiles, int x, int y, Tileset& ts):
  tiles(tiles), enthropy(tiles.size()), 
  x(x), y(y), ts(ts)
 {
@@ -21,40 +21,38 @@ void Cell::collapse()
 
 
     enthropy = 1;
-    int new_tile = tiles.at(distr(gen));
-    tiles = vector<int> {new_tile};
+    string new_tile = tiles.at(distr(gen));
+    tiles = vector<string> {new_tile};
 }
 
-vector<int> Cell::getTiles()
+vector<string> Cell::getTiles()
 {
     return tiles;
 }
-void Cell::update(vector<string> rules, int direction)
+bool Cell::update(vector<string> neigh_tiles, int direction)
 {
+    bool updated = false;
+    int checking_side = rotateSide(direction); //Side to which we compare neighbouring tiles
+    vector<string> new_tiles;
 
-    int checking_side = rotateSide(direction);
-    //std::cout << "Checked side: " << checking_side << "\n";
-    vector<int> new_tiles;
-    for(int tileID : tiles)
+    for(string tileID : tiles) //For each possible tile in this cell
     {
-        bool satisfied_check = false;
-        shared_ptr<Tile> tile = ts.getTile(tileID);
-        string side = tile->getSide(checking_side);
-        for(string rule : rules)
+        for(string nTile : neigh_tiles) //We take each possible tile from neighbopuring cell
         {
-            if(rule == side)
-            {
-                satisfied_check = true;
-                break;
-            }
+            vector<string> rule = ts.getTile(nTile)->getRules().at(direction); // Take possible neighbours for possible neigh tile
+
+            if(std::find(rule.begin(), rule.end(), tileID) != rule.end() && 
+            std::find(new_tiles.begin(), new_tiles.end(), tileID) == new_tiles.end()) //And if possible tile of this cell fullfills a rule 
+                new_tiles.push_back(tileID); //We take it to an updated cell
+
         }
-        if(satisfied_check)
-            new_tiles.push_back(tileID);
     }
+    if(tiles == new_tiles)
+        return false;
+
     tiles = new_tiles;
     enthropy = tiles.size();
-    //std::cout << enthropy << "\n";
-
+    return true;
     // for(int tile : tiles)
     //     std::cout << tile << " ";
     // std::cout << "\n";

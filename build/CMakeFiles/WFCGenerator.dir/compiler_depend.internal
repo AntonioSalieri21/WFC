@@ -2506,6 +2506,7 @@ CMakeFiles/WFCGenerator.dir/tile.cpp.o
 
 CMakeFiles/WFCGenerator.dir/tileset.cpp.o
  /home/salieri/Documents/GitHub/WFC/tileset.cpp
+ /home/salieri/Documents/GitHub/WFC/sides.h
  /home/salieri/Documents/GitHub/WFC/tile.h
  /home/salieri/Documents/GitHub/WFC/tileinfo.h
  /home/salieri/Documents/GitHub/WFC/tileset.h

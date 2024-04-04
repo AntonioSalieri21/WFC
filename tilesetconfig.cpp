@@ -17,17 +17,31 @@ TilesetConfig::TilesetConfig(string config_path)
 vector<TileInfo> TilesetConfig::getTilesInfo()
 {
     vector<TileInfo> res;
-
     if(config.contains("tiles"))
     {
-        for(const auto& tile : config["tiles"])
+        for(const auto& [key, tile] : config["tiles"].items())
         {
-            res.push_back(TileInfo { tile["address"], tile["sides"]});
-            
+            res.push_back(TileInfo { tile["address"], tile["sides"], key, tile["rotate"]});
         }
-            
     }
 
     return res;
 }
+
+// vector<TileInfo> TilesetConfig::getTilesInfo()
+// {
+//     vector<TileInfo> res;
+
+//     if(config.contains("tiles"))
+//     {
+//         for(const auto& tile : config["tiles"])
+//         {
+//             res.push_back(TileInfo { tile["address"], tile["sides"], tile});
+            
+//         }
+            
+//     }
+
+//     return res;
+// }
 

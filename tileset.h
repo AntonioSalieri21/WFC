@@ -18,13 +18,15 @@ class Tileset
 
     vector<shared_ptr<Tile>> tiles;
     TilesetConfig config;
+
+    vector<shared_ptr<Tile>> rotateTile(TileInfo info);
 public:
     Tileset() = default;
     Tileset(string config_path);
     ~Tileset() = default;
 
     vector< shared_ptr<Tile> >& getTiles();
-    shared_ptr<Tile> getTile(int ID);
+    shared_ptr<Tile> getTile(string ID);
 };
 
 #endif
