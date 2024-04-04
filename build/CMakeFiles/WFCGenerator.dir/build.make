@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/salieri/Study/C++/Project
+CMAKE_SOURCE_DIR = /home/salieri/Documents/GitHub/WFC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/salieri/Study/C++/Project/build
+CMAKE_BINARY_DIR = /home/salieri/Documents/GitHub/WFC/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/WFCGenerator.dir/depend.make
@@ -70,102 +70,102 @@ include CMakeFiles/WFCGenerator.dir/progress.make
 include CMakeFiles/WFCGenerator.dir/flags.make
 
 CMakeFiles/WFCGenerator.dir/main.cpp.o: CMakeFiles/WFCGenerator.dir/flags.make
-CMakeFiles/WFCGenerator.dir/main.cpp.o: /home/salieri/Study/C++/Project/main.cpp
+CMakeFiles/WFCGenerator.dir/main.cpp.o: /home/salieri/Documents/GitHub/WFC/main.cpp
 CMakeFiles/WFCGenerator.dir/main.cpp.o: CMakeFiles/WFCGenerator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Study/C++/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/WFCGenerator.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/main.cpp.o -MF CMakeFiles/WFCGenerator.dir/main.cpp.o.d -o CMakeFiles/WFCGenerator.dir/main.cpp.o -c /home/salieri/Study/C++/Project/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Documents/GitHub/WFC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/WFCGenerator.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/main.cpp.o -MF CMakeFiles/WFCGenerator.dir/main.cpp.o.d -o CMakeFiles/WFCGenerator.dir/main.cpp.o -c /home/salieri/Documents/GitHub/WFC/main.cpp
 
 CMakeFiles/WFCGenerator.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WFCGenerator.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Study/C++/Project/main.cpp > CMakeFiles/WFCGenerator.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Documents/GitHub/WFC/main.cpp > CMakeFiles/WFCGenerator.dir/main.cpp.i
 
 CMakeFiles/WFCGenerator.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WFCGenerator.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Study/C++/Project/main.cpp -o CMakeFiles/WFCGenerator.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Documents/GitHub/WFC/main.cpp -o CMakeFiles/WFCGenerator.dir/main.cpp.s
 
 CMakeFiles/WFCGenerator.dir/tile.cpp.o: CMakeFiles/WFCGenerator.dir/flags.make
-CMakeFiles/WFCGenerator.dir/tile.cpp.o: /home/salieri/Study/C++/Project/tile.cpp
+CMakeFiles/WFCGenerator.dir/tile.cpp.o: /home/salieri/Documents/GitHub/WFC/tile.cpp
 CMakeFiles/WFCGenerator.dir/tile.cpp.o: CMakeFiles/WFCGenerator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Study/C++/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/WFCGenerator.dir/tile.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/tile.cpp.o -MF CMakeFiles/WFCGenerator.dir/tile.cpp.o.d -o CMakeFiles/WFCGenerator.dir/tile.cpp.o -c /home/salieri/Study/C++/Project/tile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Documents/GitHub/WFC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/WFCGenerator.dir/tile.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/tile.cpp.o -MF CMakeFiles/WFCGenerator.dir/tile.cpp.o.d -o CMakeFiles/WFCGenerator.dir/tile.cpp.o -c /home/salieri/Documents/GitHub/WFC/tile.cpp
 
 CMakeFiles/WFCGenerator.dir/tile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WFCGenerator.dir/tile.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Study/C++/Project/tile.cpp > CMakeFiles/WFCGenerator.dir/tile.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Documents/GitHub/WFC/tile.cpp > CMakeFiles/WFCGenerator.dir/tile.cpp.i
 
 CMakeFiles/WFCGenerator.dir/tile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WFCGenerator.dir/tile.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Study/C++/Project/tile.cpp -o CMakeFiles/WFCGenerator.dir/tile.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Documents/GitHub/WFC/tile.cpp -o CMakeFiles/WFCGenerator.dir/tile.cpp.s
 
 CMakeFiles/WFCGenerator.dir/tileset.cpp.o: CMakeFiles/WFCGenerator.dir/flags.make
-CMakeFiles/WFCGenerator.dir/tileset.cpp.o: /home/salieri/Study/C++/Project/tileset.cpp
+CMakeFiles/WFCGenerator.dir/tileset.cpp.o: /home/salieri/Documents/GitHub/WFC/tileset.cpp
 CMakeFiles/WFCGenerator.dir/tileset.cpp.o: CMakeFiles/WFCGenerator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Study/C++/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/WFCGenerator.dir/tileset.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/tileset.cpp.o -MF CMakeFiles/WFCGenerator.dir/tileset.cpp.o.d -o CMakeFiles/WFCGenerator.dir/tileset.cpp.o -c /home/salieri/Study/C++/Project/tileset.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Documents/GitHub/WFC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/WFCGenerator.dir/tileset.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/tileset.cpp.o -MF CMakeFiles/WFCGenerator.dir/tileset.cpp.o.d -o CMakeFiles/WFCGenerator.dir/tileset.cpp.o -c /home/salieri/Documents/GitHub/WFC/tileset.cpp
 
 CMakeFiles/WFCGenerator.dir/tileset.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WFCGenerator.dir/tileset.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Study/C++/Project/tileset.cpp > CMakeFiles/WFCGenerator.dir/tileset.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Documents/GitHub/WFC/tileset.cpp > CMakeFiles/WFCGenerator.dir/tileset.cpp.i
 
 CMakeFiles/WFCGenerator.dir/tileset.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WFCGenerator.dir/tileset.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Study/C++/Project/tileset.cpp -o CMakeFiles/WFCGenerator.dir/tileset.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Documents/GitHub/WFC/tileset.cpp -o CMakeFiles/WFCGenerator.dir/tileset.cpp.s
 
 CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o: CMakeFiles/WFCGenerator.dir/flags.make
-CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o: /home/salieri/Study/C++/Project/tilesetconfig.cpp
+CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o: /home/salieri/Documents/GitHub/WFC/tilesetconfig.cpp
 CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o: CMakeFiles/WFCGenerator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Study/C++/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o -MF CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o.d -o CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o -c /home/salieri/Study/C++/Project/tilesetconfig.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Documents/GitHub/WFC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o -MF CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o.d -o CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o -c /home/salieri/Documents/GitHub/WFC/tilesetconfig.cpp
 
 CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Study/C++/Project/tilesetconfig.cpp > CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Documents/GitHub/WFC/tilesetconfig.cpp > CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.i
 
 CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Study/C++/Project/tilesetconfig.cpp -o CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Documents/GitHub/WFC/tilesetconfig.cpp -o CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.s
 
 CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o: CMakeFiles/WFCGenerator.dir/flags.make
-CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o: /home/salieri/Study/C++/Project/wfc_generator.cpp
+CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o: /home/salieri/Documents/GitHub/WFC/wfc_generator.cpp
 CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o: CMakeFiles/WFCGenerator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Study/C++/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o -MF CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o.d -o CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o -c /home/salieri/Study/C++/Project/wfc_generator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Documents/GitHub/WFC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o -MF CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o.d -o CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o -c /home/salieri/Documents/GitHub/WFC/wfc_generator.cpp
 
 CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Study/C++/Project/wfc_generator.cpp > CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Documents/GitHub/WFC/wfc_generator.cpp > CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.i
 
 CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Study/C++/Project/wfc_generator.cpp -o CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Documents/GitHub/WFC/wfc_generator.cpp -o CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.s
 
 CMakeFiles/WFCGenerator.dir/grid.cpp.o: CMakeFiles/WFCGenerator.dir/flags.make
-CMakeFiles/WFCGenerator.dir/grid.cpp.o: /home/salieri/Study/C++/Project/grid.cpp
+CMakeFiles/WFCGenerator.dir/grid.cpp.o: /home/salieri/Documents/GitHub/WFC/grid.cpp
 CMakeFiles/WFCGenerator.dir/grid.cpp.o: CMakeFiles/WFCGenerator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Study/C++/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/WFCGenerator.dir/grid.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/grid.cpp.o -MF CMakeFiles/WFCGenerator.dir/grid.cpp.o.d -o CMakeFiles/WFCGenerator.dir/grid.cpp.o -c /home/salieri/Study/C++/Project/grid.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Documents/GitHub/WFC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/WFCGenerator.dir/grid.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/grid.cpp.o -MF CMakeFiles/WFCGenerator.dir/grid.cpp.o.d -o CMakeFiles/WFCGenerator.dir/grid.cpp.o -c /home/salieri/Documents/GitHub/WFC/grid.cpp
 
 CMakeFiles/WFCGenerator.dir/grid.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WFCGenerator.dir/grid.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Study/C++/Project/grid.cpp > CMakeFiles/WFCGenerator.dir/grid.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Documents/GitHub/WFC/grid.cpp > CMakeFiles/WFCGenerator.dir/grid.cpp.i
 
 CMakeFiles/WFCGenerator.dir/grid.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WFCGenerator.dir/grid.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Study/C++/Project/grid.cpp -o CMakeFiles/WFCGenerator.dir/grid.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Documents/GitHub/WFC/grid.cpp -o CMakeFiles/WFCGenerator.dir/grid.cpp.s
 
 CMakeFiles/WFCGenerator.dir/cell.cpp.o: CMakeFiles/WFCGenerator.dir/flags.make
-CMakeFiles/WFCGenerator.dir/cell.cpp.o: /home/salieri/Study/C++/Project/cell.cpp
+CMakeFiles/WFCGenerator.dir/cell.cpp.o: /home/salieri/Documents/GitHub/WFC/cell.cpp
 CMakeFiles/WFCGenerator.dir/cell.cpp.o: CMakeFiles/WFCGenerator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Study/C++/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/WFCGenerator.dir/cell.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/cell.cpp.o -MF CMakeFiles/WFCGenerator.dir/cell.cpp.o.d -o CMakeFiles/WFCGenerator.dir/cell.cpp.o -c /home/salieri/Study/C++/Project/cell.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/salieri/Documents/GitHub/WFC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/WFCGenerator.dir/cell.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WFCGenerator.dir/cell.cpp.o -MF CMakeFiles/WFCGenerator.dir/cell.cpp.o.d -o CMakeFiles/WFCGenerator.dir/cell.cpp.o -c /home/salieri/Documents/GitHub/WFC/cell.cpp
 
 CMakeFiles/WFCGenerator.dir/cell.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WFCGenerator.dir/cell.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Study/C++/Project/cell.cpp > CMakeFiles/WFCGenerator.dir/cell.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salieri/Documents/GitHub/WFC/cell.cpp > CMakeFiles/WFCGenerator.dir/cell.cpp.i
 
 CMakeFiles/WFCGenerator.dir/cell.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WFCGenerator.dir/cell.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Study/C++/Project/cell.cpp -o CMakeFiles/WFCGenerator.dir/cell.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salieri/Documents/GitHub/WFC/cell.cpp -o CMakeFiles/WFCGenerator.dir/cell.cpp.s
 
 # Object files for target WFCGenerator
 WFCGenerator_OBJECTS = \
@@ -245,7 +245,7 @@ WFCGenerator: /usr/lib/libopencv_photo.so.4.9.0
 WFCGenerator: /usr/lib/libopencv_imgproc.so.4.9.0
 WFCGenerator: /usr/lib/libopencv_core.so.4.9.0
 WFCGenerator: CMakeFiles/WFCGenerator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/salieri/Study/C++/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable WFCGenerator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/salieri/Documents/GitHub/WFC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable WFCGenerator"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/WFCGenerator.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -257,6 +257,6 @@ CMakeFiles/WFCGenerator.dir/clean:
 .PHONY : CMakeFiles/WFCGenerator.dir/clean
 
 CMakeFiles/WFCGenerator.dir/depend:
-	cd /home/salieri/Study/C++/Project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/salieri/Study/C++/Project /home/salieri/Study/C++/Project /home/salieri/Study/C++/Project/build /home/salieri/Study/C++/Project/build /home/salieri/Study/C++/Project/build/CMakeFiles/WFCGenerator.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/salieri/Documents/GitHub/WFC/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/salieri/Documents/GitHub/WFC /home/salieri/Documents/GitHub/WFC /home/salieri/Documents/GitHub/WFC/build /home/salieri/Documents/GitHub/WFC/build /home/salieri/Documents/GitHub/WFC/build/CMakeFiles/WFCGenerator.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/WFCGenerator.dir/depend
 

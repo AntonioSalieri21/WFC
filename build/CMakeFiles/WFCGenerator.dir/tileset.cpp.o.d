@@ -1,6 +1,7 @@
 CMakeFiles/WFCGenerator.dir/tileset.cpp.o: \
- /home/salieri/Study/C++/Project/tileset.cpp /usr/include/stdc-predef.h \
- /home/salieri/Study/C++/Project/tileset.h /usr/include/c++/13.2.1/vector \
+ /home/salieri/Documents/GitHub/WFC/tileset.cpp \
+ /usr/include/stdc-predef.h /home/salieri/Documents/GitHub/WFC/tileset.h \
+ /usr/include/c++/13.2.1/vector \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -52,7 +53,7 @@ CMakeFiles/WFCGenerator.dir/tileset.cpp.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stddef.h \
  /usr/include/c++/13.2.1/bits/uses_allocator.h \
  /usr/include/c++/13.2.1/bits/uses_allocator_args.h \
- /usr/include/c++/13.2.1/tuple /home/salieri/Study/C++/Project/tile.h \
+ /usr/include/c++/13.2.1/tuple /home/salieri/Documents/GitHub/WFC/tile.h \
  /usr/include/c++/13.2.1/string /usr/include/c++/13.2.1/bits/stringfwd.h \
  /usr/include/c++/13.2.1/bits/char_traits.h \
  /usr/include/c++/13.2.1/bits/postypes.h /usr/include/c++/13.2.1/cwchar \
@@ -353,8 +354,8 @@ CMakeFiles/WFCGenerator.dir/tileset.cpp.o: \
  /usr/include/opencv4/opencv2/video.hpp \
  /usr/include/opencv4/opencv2/video/tracking.hpp \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
- /home/salieri/Study/C++/Project/tileinfo.h \
- /home/salieri/Study/C++/Project/tilesetconfig.h \
+ /home/salieri/Documents/GitHub/WFC/tileinfo.h \
+ /home/salieri/Documents/GitHub/WFC/tilesetconfig.h \
  /usr/include/nlohmann/json.hpp /usr/include/c++/13.2.1/iterator \
  /usr/include/c++/13.2.1/bits/stream_iterator.h \
  /usr/include/c++/13.2.1/numeric \

@@ -19,6 +19,8 @@ public:
     ~Grid() = default;
 
     Cell* getCell(int x, int y);
+    int getX();
+    int getY();
 
 };
 

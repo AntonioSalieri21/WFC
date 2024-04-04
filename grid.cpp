@@ -14,6 +14,7 @@ Grid::Grid(Tileset& ts, int x, int y): x(x), y(y)
             }
             row.push_back(Cell(tiles));
         }
+        cells.push_back(row);
     }
 
 }
@@ -23,8 +24,18 @@ Cell* Grid::getCell(int x, int y)
     if(0 <= x < cells.size())
     {
         if( 0 <= y < cells.at(x).size())
-            return &cells.at(x).at(y);
+            return &(cells.at(x).at(y));
     }
 
     return nullptr;
+}
+
+int Grid::getX()
+{
+    return x;
+}
+
+int Grid::getY()
+{
+    return y;
 }

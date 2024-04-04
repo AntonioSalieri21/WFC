@@ -6,7 +6,7 @@ Tile::Tile(TileInfo info, int ID) : sides(info.sides), ID(ID), address(info.tile
     // if(!image.data) {
     //     std::cout << "Could not open or find the image." << std::endl;
     // }
-    rules = vector< vector<int> >{4};
+    rules = vector< vector<int> >(4);
     
 }
 

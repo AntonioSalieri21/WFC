@@ -1,23 +1,23 @@
 {
     "tiles":{
         "tile_Up": {
-            "address": "/home/salieri/Study/C++/Project/SimpleTiles/up.png",
+            "address": "../SimpleTiles/up.png",
             "sides": ["010","010","000","010"]
         },
         "tile_Right": {
-            "address": "/home/salieri/Study/C++/Project/SimpleTiles/right.png",
+            "address": "../SimpleTiles/right.png",
             "sides": ["010","010","010","000"]
         },
         "tile_Down": {
-            "address": "/home/salieri/Study/C++/Project/SimpleTiles/down.png",
+            "address": "../SimpleTiles/down.png",
             "sides": ["000","010","010","010"]
         },
         "tile_Left": {
-            "address": "/home/salieri/Study/C++/Project/SimpleTiles/left.png",
+            "address": "../SimpleTiles/left.png",
             "sides": ["010","000","010","010"]
         },
         "tile_Empty": {
-            "address": "/home/salieri/Study/C++/Project/SimpleTiles/empty.png",
+            "address": "../SimpleTiles/empty.png",
             "sides": ["000","000","000","000"]
         }
     }

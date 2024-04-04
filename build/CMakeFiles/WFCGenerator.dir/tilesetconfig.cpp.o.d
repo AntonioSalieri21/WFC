@@ -1,7 +1,7 @@
 CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o: \
- /home/salieri/Study/C++/Project/tilesetconfig.cpp \
+ /home/salieri/Documents/GitHub/WFC/tilesetconfig.cpp \
  /usr/include/stdc-predef.h \
- /home/salieri/Study/C++/Project/tilesetconfig.h \
+ /home/salieri/Documents/GitHub/WFC/tilesetconfig.h \
  /usr/include/nlohmann/json.hpp /usr/include/c++/13.2.1/algorithm \
  /usr/include/c++/13.2.1/bits/stl_algobase.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -278,7 +278,7 @@ CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o: \
  /usr/include/nlohmann/ordered_map.hpp /usr/include/c++/13.2.1/any \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
- /home/salieri/Study/C++/Project/tileinfo.h \
+ /home/salieri/Documents/GitHub/WFC/tileinfo.h \
  /usr/include/c++/13.2.1/fstream \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++io.h \

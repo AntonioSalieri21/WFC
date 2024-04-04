@@ -4,13 +4,11 @@
 
 TilesetConfig::TilesetConfig(string config_path)
 {
-    std::ifstream file;
-    try
-    {
-        file.open(config_path);
-    }
-    catch(const std::exception& e) {
-        std::cerr << "Caught exception: " << e.what() << '\n';
+    std::ifstream file(config_path);
+
+    if(file.fail()){
+        std::cerr << "Failed to open file." << '\n';
+        return;
     }
 
     file >> config;

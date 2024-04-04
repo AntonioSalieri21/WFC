@@ -1,6 +1,6 @@
 CMakeFiles/WFCGenerator.dir/tile.cpp.o: \
- /home/salieri/Study/C++/Project/tile.cpp /usr/include/stdc-predef.h \
- /home/salieri/Study/C++/Project/tile.h /usr/include/c++/13.2.1/string \
+ /home/salieri/Documents/GitHub/WFC/tile.cpp /usr/include/stdc-predef.h \
+ /home/salieri/Documents/GitHub/WFC/tile.h /usr/include/c++/13.2.1/string \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -352,5 +352,5 @@ CMakeFiles/WFCGenerator.dir/tile.cpp.o: \
  /usr/include/opencv4/opencv2/video.hpp \
  /usr/include/opencv4/opencv2/video/tracking.hpp \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
- /home/salieri/Study/C++/Project/tileinfo.h \
- /home/salieri/Study/C++/Project/sides.h
+ /home/salieri/Documents/GitHub/WFC/tileinfo.h \
+ /home/salieri/Documents/GitHub/WFC/sides.h

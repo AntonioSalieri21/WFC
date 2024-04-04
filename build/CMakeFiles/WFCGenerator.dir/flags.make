@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/salieri/Study/C++/Project -isystem /usr/include/opencv4
+CXX_INCLUDES = -I/home/salieri/Documents/GitHub/WFC -isystem /usr/include/opencv4
 
 CXX_FLAGS = -g -fsanitize=address -std=gnu++17
 
