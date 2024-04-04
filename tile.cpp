@@ -13,7 +13,12 @@ Tile::Tile(TileInfo info) : sides(info.sides), ID(info.ID), address(info.tile_pa
 Tile::~Tile()
 {
 }
-
+std::string reverseString(const std::string& str) 
+{
+    std::string reversedStr = str;
+    std::reverse(reversedStr.begin(), reversedStr.end());
+    return reversedStr;
+}
 void Tile::generateRules(vector<shared_ptr<Tile>>& tiles)
 {
     /*
@@ -30,7 +35,7 @@ void Tile::generateRules(vector<shared_ptr<Tile>>& tiles)
         string checking_side = sides.at(dir);
         for( shared_ptr<Tile> tile : tiles)
         {
-            string checked_side = tile->getSide(rotateSide(dir));
+            string checked_side = reverseString(tile->getSide(rotateSide(dir)));
             
             if(checked_side == checking_side)
                 rules.at(dir).push_back(tile->getId());

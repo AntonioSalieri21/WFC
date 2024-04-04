@@ -2,57 +2,67 @@
     "tiles":{
         "0": {
             "address": "../Tiles/circuit/0.png",
-            "sides": ["0","0","0","0"],
+            "sides": ["AAA","AAA","AAA","AAA"],
             "rotate": false
         },
         "1": {
             "address": "../Tiles/circuit/1.png",
-            "sides": ["1","1","1","1"],
+            "sides": ["BBB","BBB","BBB","BBB"],
             "rotate": false
         },
         "2": {
             "address": "../Tiles/circuit/2.png",
-            "sides": ["1","2","1","1"],
+            "sides": ["BBB","BCB","BBB","BBB"],
             "rotate": true
         },
         "3": {
             "address": "../Tiles/circuit/3.png",
-            "sides": ["1","3","1","5"],
+            "sides": ["BBB","BDB","BBB","BDB"],
+            "rotate": true
+        },
+        "4": {
+            "address": "../Tiles/circuit/4.png",
+            "sides": ["ABB","BCB","BBA","AAA"],
+            "rotate": true
+        },
+        "5": {
+            "address": "../Tiles/circuit/5.png",
+            "sides": ["ABB","BBB","BBB","BBA"],
             "rotate": true
         },
         "6": {
             "address": "../Tiles/circuit/6.png",
-            "sides": ["1","2","1","2"],
+            "sides": ["BBB","BCB","BBB","BCB"],
             "rotate": true
         },
         "7": {
             "address": "../Tiles/circuit/7.png",
-            "sides": ["3","2","3","2"],
+            "sides": ["BDB","BCB","BDB","BCB"],
             "rotate": true
         },
         "8": {
             "address": "../Tiles/circuit/8.png",
-            "sides": ["3","1","2","1"],
+            "sides": ["BDB","BBB","BCB","BBB"],
             "rotate": true
         },
         "9": {
             "address": "../Tiles/circuit/9.png",
-            "sides": ["2","2","1","2"],
+            "sides": ["BCB","BCB","BBB","BCB"],
             "rotate": true
         },
         "10": {
             "address": "../Tiles/circuit/10.png",
-            "sides": ["2","2","2","2"],
+            "sides": ["BCB","BCB","BCB","BCB"],
             "rotate": true
         },
         "11": {
             "address": "../Tiles/circuit/11.png",
-            "sides": ["2","2","1","1"],
+            "sides": ["BCB","BCB","BBB","BBB"],
             "rotate": true
         },
         "12": {
             "address": "../Tiles/circuit/12.png",
-            "sides": ["1","2","1","2"],
+            "sides": ["BBB","BCB","BBB","BCB"],
             "rotate": true
         }
     }
