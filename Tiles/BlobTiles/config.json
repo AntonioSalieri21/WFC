@@ -1,152 +1,100 @@
 {
     "tiles" :{
         "tile1": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/1.png"
+            "address": "../Tiles/BlobTiles/1.png",
+            "sides": ["000", "000", "000", "000"],
+            "rotate": false
         },
         "tile2": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/2.png"
+            "address": "../Tiles/BlobTiles/2.png",
+            "sides": ["000", "010", "000", "000"],
+            "rotate": true
         },
         "tile3": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/3.png"
+            "address": "../Tiles/BlobTiles/3.png",
+            "sides": ["000", "010", "010", "010"],
+            "rotate": true
         },
         "tile4": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/4.png"
+            "address": "../Tiles/BlobTiles/4.png",
+            "sides": ["000", "011", "110", "000"],
+            "rotate": true
         },
         "tile5": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/5.png"
+            "address": "../Tiles/BlobTiles/5.png",
+            "sides": ["000", "011", "111", "110"],
+            "rotate": true
         },
         "tile6": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/6.png"
+            "address": "../Tiles/BlobTiles/6.png",
+            "sides": ["000", "010", "011", "110"],
+            "rotate": true
         },
         "tile7": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/7.png"
+            "address": "../Tiles/BlobTiles/7.png",
+            "sides": ["000", "000", "010", "010"],
+            "rotate": true
         },
         "tile8": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/8.png"
+            "address": "../Tiles/BlobTiles/8.png",
+            "sides": ["000", "000", "010", "000"],
+            "rotate": true
         },
         "tile9": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/9.png"
+            "address": "../Tiles/BlobTiles/9.png",
+            "sides": ["000", "011", "110", "000"],
+            "rotate": true
         },
         "tile10": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/10.png"
+            "address": "../Tiles/BlobTiles/10.png",
+            "sides": ["010", "010", "0011", "110"],
+            "rotate": true
         },
         "tile11": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/11.png"
+            "address": "../Tiles/BlobTiles/11.png",
+            "sides": ["011", "111", "110", "010"],
+            "rotate": true
         },
         "tile12": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/12.png"
+            "address": "../Tiles/BlobTiles/12.png",
+            "sides": ["111", "111", "111", "111"],
+            "rotate": true
         },
         "tile13": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/13.png"
+            "address": "../Tiles/BlobTiles/13.png",
+            "sides": ["110", "011", "111", "111"],
+            "rotate": true
         },
         "tile14": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/14.png"
+            "address": "../Tiles/BlobTiles/14.png",
+            "sides": ["010", "000", "011", "110"],
+            "rotate": true
         },
         "tile15": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/15.png"
+            "address": "../Tiles/BlobTiles/15.png",
+            "sides": ["010", "010", "010", "000"],
+            "rotate": true
         },
         "tile16": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/16.png"
+            "address": "../Tiles/BlobTiles/16.png",
+            "sides": ["011", "110", "010", "010"],
+            "rotate": true
         },
         "tile17": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/17.png"
+            "address": "../Tiles/BlobTiles/17.png",
+            "sides": ["110", "011", "110", "011"],
+            "rotate": true
         },
         "tile18": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/18.png"
+            "address": "../Tiles/BlobTiles/18.png",
+            "sides": ["011", "111", "111", "110"],
+            "rotate": true
         },
         "tile19": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/19.png"
-        },
-        "tile20": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/20.png"
-        },
-        "tile21": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/21.png"
-        },
-        "tile22": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/22.png"
-        },
-        "tile23": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/23.png"
-        },
-        "tile24": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/24.png"
-        },
-        "tile25": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/25.png"
-        },
-        "tile26": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/26.png"
-        },
-        "tile27": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/27.png"
-        },
-        "tile28": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/28.png"
-        },
-        "tile29": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/29.png"
-        },
-        "tile30": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/30.png"
-        },
-        "tile31": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/31.png"
-        },
-        "tile32": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/32.png"
-        },
-        "tile33": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/33.png"
-        },
-        "tile34": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/34.png"
-        },
-        "tile35": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/35.png"
-        },
-        "tile36": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/36.png"
-        },
-        "tile37": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/37.png"
-        },
-        "tile38": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/38.png"
-        },
-        "tile39": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/39.png"
-        },
-        "tile40": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/40.png"
-        },
-        "tile41": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/41.png"
-        },
-        "tile42": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/42.png"
-        },
-        "tile43": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/43.png"
-        },
-        "tile44": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/44.png"
-        },
-        "tile45": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/45.png"
-        },
-        "tile46": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/46.png"
-        },
-        "tile47": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/47.png"
-        },
-        "tile48": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/48.png"
-        },
-        "tile49": {
-            "address": "/home/salieri/Study/C++/Project/Tiles/49.png"
+            "address": "../Tiles/BlobTiles/19.png",
+            "sides": ["111", "111", "111", "111"],
+            "rotate": false
         }
-
+ 
     }
 }

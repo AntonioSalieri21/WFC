@@ -11,11 +11,11 @@ void WFCGenerator::collapseGrid()
 {
 
     Cell* changed_cell = initGrid();
-
     int steps = 0;
 
     while(!grid.isCollapsed())
     {
+
         updateGrid(changed_cell);
 
         std::cout << "Step: " << steps << "\n";
@@ -41,7 +41,7 @@ void WFCGenerator::updateGrid(Cell* changed_cell)
     while (!cells_to_update.empty()) {
         Cell* current_cell = cells_to_update.front();
         cells_to_update.pop();
-
+        grid.printGridEnthropy();
         for (int i : const_dir) {
             Cell* neighbor = nullptr;
             switch (i) {
@@ -99,7 +99,7 @@ Cell* WFCGenerator::initGrid()
 Cell* WFCGenerator::collapseLeastEnthropy()
 {
     Cell* res = grid.getLeastEnthropy();
-    //std::cout << res << "\n";
+
     if(res == nullptr)
         return res;
     res->collapse();

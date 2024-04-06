@@ -20,7 +20,9 @@ int main(int argc, char *argv[])
     
     unique_ptr<Grid> grid;
     do {
+
         grid.reset(new Grid(ts, gridWidth, gridHeight));
+
         WFCGenerator generator(*grid, ts);
         auto start = std::chrono::high_resolution_clock::now();
 
@@ -29,10 +31,7 @@ int main(int argc, char *argv[])
         auto end = std::chrono::high_resolution_clock::now(); // End timer
         std::chrono::duration<double> elapsed = end - start;
 
-        std::cout << "Time taken by collapseGrid: " << elapsed.count() << " seconds\n";
-        //grid.printGridEnthropy();
-        //grid.printGridTiles();
-        //grid->printGridCollapsedTiles();
+        std::cout << "Time taken to collapse grid: " << elapsed.count() << " seconds\n";
         std::cout << std::endl;
         
     } while(!grid->isValid());

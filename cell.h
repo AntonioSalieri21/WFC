@@ -25,12 +25,12 @@ public:
     
     void collapse();
     bool update(vector<string> neigh_tiles, int direction);
-    vector<string> getTiles();
-    int getEnthropy(){return enthropy;}
+    vector<string> getTiles() const;
+    int getEnthropy()const{return enthropy;} 
 
-    int getX() {return x;}
-    int getY() {return y;}
-
+    int getX()const {return x;} 
+    int getY()const {return y;}
+ 
 };
 
 #endif

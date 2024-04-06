@@ -8,7 +8,6 @@ Tileset::Tileset(string config_path): config(config_path)
     
     for(TileInfo tile_info : tiles_info)
     {
-        //tile_info.ID = tiles.size();
         try{
             
             if(tile_info.rotate)
@@ -29,7 +28,6 @@ Tileset::Tileset(string config_path): config(config_path)
     {
         
         tile->generateRules(tiles);
-        //std::cout << tile.get()->getId;
     }
 
     
@@ -77,7 +75,7 @@ vector<shared_ptr<Tile>> Tileset::rotateTile(TileInfo info)
     DOWN 2
     LEFT 3
     */
-    //vector<vector<string>> rotated_sides(4);
+
     vector<shared_ptr<Tile>> res;
     vector<TileInfo> infos;
     infos.push_back(info);
@@ -107,10 +105,6 @@ vector<shared_ptr<Tile>> Tileset::rotateTile(TileInfo info)
     {
         sides.push_back(rotate(info.sides, i));
     }
-    
-    // infos.push_back({first_path,sides.at(1), info.ID + "_rotated90", true });
-    // infos.push_back({second_path,sides.at(2), info.ID + "_rotated180", true });
-    // infos.push_back({third_path,sides.at(3), info.ID + "_rotated270", true });
 
     infos.push_back({first_path,sides.at(1), info.ID + "_rotated90", true });
     infos.push_back({second_path,sides.at(2), info.ID + "_rotated180", true });

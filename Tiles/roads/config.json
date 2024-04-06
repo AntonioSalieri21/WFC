@@ -1,0 +1,29 @@
+{
+    "tiles":{
+        "blank":{
+            "address": "../Tiles/roads/blank.png",
+            "sides": ["0", "0", "0", "0"],
+            "rotate": false
+        },
+        "down":{
+            "address": "../Tiles/roads/down.png",
+            "sides": ["0", "1", "1", "1"],
+            "rotate": false
+        },
+        "left":{
+            "address": "../Tiles/roads/left.png",
+            "sides": ["1", "0", "1", "1"],
+            "rotate": false
+        },
+        "right":{
+            "address": "../Tiles/roads/right.png",
+            "sides": ["1", "1", "1", "0"],
+            "rotate": false
+        },
+        "up":{
+            "address": "../Tiles/roads/up.png",
+            "sides": ["1", "1", "0", "1"],
+            "rotate": false
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "tiles":{
+        "blank":{
+            "address": "../Tiles/polka/blank.png",
+            "sides": ["0","0", "0", "0"],
+            "rotate": false
+        },
+        "down":{
+            "address": "../Tiles/polka/down.png",
+            "sides": ["0","1", "1", "1"],
+            "rotate": false
+        },
+        "left":{
+            "address": "../Tiles/polka/left.png",
+            "sides": ["1","0", "1", "1"],
+            "rotate": false
+        },
+        "right":{
+            "address": "../Tiles/polka/right.png",
+            "sides": ["1","1", "1", "0"],
+            "rotate": false
+        },
+        "up":{
+            "address": "../Tiles/polka/up.png",
+            "sides": ["1","1", "0", "1"],
+            "rotate": false
+        }
+    }
+}

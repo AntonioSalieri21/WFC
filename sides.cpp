@@ -2,11 +2,7 @@
 
 int rotateSide(int side)
 {
-    int res = side + 2;
-    if(res > LEFT)
-        res -= LEFT+1;
-
-    return res;
+    return (side + 2) % 4;
 
 }
 int rotate90(int side)

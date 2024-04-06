@@ -17,7 +17,6 @@ class Tile
     string address; //DEBUG
     string ID;
 public:
-    Tile() = default;
     Tile(TileInfo info);
     ~Tile();
 

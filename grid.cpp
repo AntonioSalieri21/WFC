@@ -19,7 +19,7 @@ Grid::Grid(Tileset& ts, int x, int y): xSize(x), ySize(y)
 
 }
 
-Cell* Grid::getCell(int x, int y)
+Cell* Grid::getCell(int x, int y) 
 {
     if(y >= 0 & y < cells.size())
     {
@@ -30,17 +30,7 @@ Cell* Grid::getCell(int x, int y)
     return nullptr;
 }
 
-int Grid::getX()
-{
-    return xSize;
-}
-
-int Grid::getY()
-{
-    return ySize;
-}
-
-bool Grid::isCollapsed()
+bool Grid::isCollapsed() 
 {
     for(vector<Cell>& row : cells)
     {
@@ -50,7 +40,7 @@ bool Grid::isCollapsed()
     return true;
 }
 
-Cell* Grid::getLeastEnthropy()
+Cell* Grid::getLeastEnthropy() 
 {
     Cell* res = nullptr;
     //std::cout << res << "\n";
@@ -73,7 +63,7 @@ Cell* Grid::getLeastEnthropy()
 
 }
 
-bool Grid::isValid()
+bool Grid::isValid() const
 {
     for(vector<Cell> row : cells)
     {
@@ -84,7 +74,7 @@ bool Grid::isValid()
 }
 
 
-void Grid::printGridEnthropy()
+void Grid::printGridEnthropy() 
 {
     for(int i = 0; i < ySize; i++)
     {
@@ -93,7 +83,7 @@ void Grid::printGridEnthropy()
         std::cout << "\n";
     }
 }
-void Grid::printGridTiles()
+void Grid::printGridTiles() 
 {
     for(vector<Cell> row : cells)
     {
@@ -109,7 +99,7 @@ void Grid::printGridTiles()
     }
 }
 
-void Grid::printGridCollapsedTiles()
+void Grid::printGridCollapsedTiles() 
 {
     for(int i = 0; i < ySize; i++)
     {

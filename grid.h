@@ -14,15 +14,14 @@ class Grid
     vector<vector<Cell>> cells;
 
 public:
-    Grid() = default;
     Grid(Tileset& ts, int x, int y);
     ~Grid() = default;
 
     Cell* getCell(int x, int y);
-    int getX();
-    int getY();
+    int getX()const{return xSize;}
+    int getY()const{return ySize;}
     bool isCollapsed();
-    bool isValid();
+    bool isValid()const;
     Cell* getLeastEnthropy();
     vector<vector<Cell>>& getCells(){return cells;}
 

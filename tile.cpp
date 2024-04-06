@@ -27,8 +27,6 @@ void Tile::generateRules(vector<shared_ptr<Tile>>& tiles)
     DOWN
     LEFT
     */
-    //std::cout << "Checking tile: " << ID << " " << address << "\n";
-
     
     for(int dir : const_dir)
     {
@@ -36,22 +34,12 @@ void Tile::generateRules(vector<shared_ptr<Tile>>& tiles)
         for( shared_ptr<Tile> tile : tiles)
         {
             string checked_side = reverseString(tile->getSide(rotateSide(dir)));
-            //string checked_side = tile->getSide(rotateSide(dir));
             if(checked_side == checking_side)
                 rules.at(dir).push_back(tile->getId());
 
         }
 
     }
-
-    // for(vector<string> rule: rules)
-    // {
-    //     for(string tile : rule)
-    //         std::cout << tile << "\n";
-
-    //     std::cout << "\n"; 
-    // }
-    // std::cout << "\n\n";    
 
 }
 

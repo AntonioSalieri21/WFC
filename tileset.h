@@ -21,7 +21,6 @@ class Tileset
 
     vector<shared_ptr<Tile>> rotateTile(TileInfo info);
 public:
-    Tileset() = default;
     Tileset(string config_path);
     ~Tileset() = default;
 
