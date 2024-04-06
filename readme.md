@@ -13,20 +13,17 @@ Grid: 2D array of Cells. \
 Enthropy: number of possible states of Cell.
 
 ## Prerequisites
-You will need opencv for image handling.
+You will need opencv for image handling and nlohmann json parser for config parsing.
 
 Ubuntu:
 > sudo apt update\
 > sudo apt install libopencv-dev\
+> sudo apt-get install nlohmann-json-dev
 
 
 Arch:
 > sudo pacman -S opencv
-
-Windows:
-> https://docs.opencv.org/4.x/d3/d52/tutorial_windows_install.html\
-
-
+> sudo pacman -S nlohmann-json
 
 ### Installing
 > mkdir build \
