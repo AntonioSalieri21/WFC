@@ -13,19 +13,19 @@ class Cell
 {
 
     int enthropy;
-    vector<string> tiles;
+    vector<shared_ptr<Tile>> tiles;
     int x;
     int y;
     Tileset& ts;
 
 public:
     Cell() = default;
-    Cell(vector<string> tiles, int x, int y, Tileset& ts);
+    Cell(vector<shared_ptr<Tile>> tiles, int x, int y, Tileset& ts);
     ~Cell() = default;
     
     void collapse();
-    bool update(vector<string> neigh_tiles, int direction);
-    vector<string> getTiles() const;
+    bool update(vector<shared_ptr<Tile>> neigh_tiles, int direction);
+    vector<shared_ptr<Tile>> getTiles() const;
     int getEnthropy()const{return enthropy;} 
 
     int getX()const {return x;} 

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <unordered_set>
 using std::unordered_set;
-Cell::Cell(vector<string> tiles, int x, int y, Tileset& ts):
+Cell::Cell(vector<shared_ptr<Tile>> tiles, int x, int y, Tileset& ts):
  tiles(tiles), enthropy(tiles.size()), 
  x(x), y(y), ts(ts)
 {
@@ -23,33 +23,34 @@ void Cell::collapse()
 
 
     enthropy = 1;
-    string new_tile = tiles.at(distr(gen));
-    tiles = vector<string> {new_tile};
+    shared_ptr<Tile> new_tile = tiles.at(distr(gen));
+    tiles = vector<shared_ptr<Tile>> {new_tile};
 }
 
-vector<string> Cell::getTiles() const
+vector<shared_ptr<Tile>> Cell::getTiles() const
 {
     return tiles;
 }
 
-bool Cell::update(vector<string> neigh_tiles, int direction)
+bool Cell::update(vector<shared_ptr<Tile>> neigh_tiles, int direction)
 {
     bool updated = false;
     int checking_side = rotateSide(direction); //Side to which we compare neighbouring tiles
-    unordered_set<string> new_tiles;
+    unordered_set<shared_ptr<Tile>> new_tiles;
 
-    for(string nTile : neigh_tiles) //We take each possible tile from neighbopuring cell
+    for(shared_ptr<Tile> neigh_tile : neigh_tiles) //We take pointer to each possible tile from neighbopuring cell
     {
-        vector<string> rule = ts.getTile(nTile)->getRules().at(direction); // Take possible neighbours for possible neigh tile
+        vector<string> rule = neigh_tile->getRules().at(direction); // Take possible neighbours for possible neigh tile
 
-        for(string tileID : tiles) //For each possible tile in this cell
+        for(shared_ptr<Tile> possible_tile : tiles) //For each possible tile in this cell
         {
-            if(std::find(rule.begin(), rule.end(), tileID) != rule.end()) //And if possible tile of this cell fullfills a rule 
-                new_tiles.insert(tileID); //We take it to an updated cell
+            if(std::find(rule.begin(), rule.end(), possible_tile->getId()) != rule.end())
+                new_tiles.insert(possible_tile); //We take it to an updated cell        
+            
         }
     }
 
-    if(tiles.size() == new_tiles.size() && std::all_of(new_tiles.begin(), new_tiles.end(), [this](const string& tile){ return std::find(tiles.begin(), tiles.end(), tile) != tiles.end(); }))
+    if(tiles.size() == new_tiles.size() && std::all_of(new_tiles.begin(), new_tiles.end(), [this](const shared_ptr<Tile>& tile){ return std::find(tiles.begin(), tiles.end(), tile) != tiles.end(); }))
         return false;
 
     tiles.assign(new_tiles.begin(), new_tiles.end());

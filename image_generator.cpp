@@ -10,7 +10,7 @@ void ImageGenerator::saveImage(Grid& grid, Tileset& ts, string path)
     for(int i = 0; i < y; i++)
     {
         for(int j = 0; j < x; j++)
-            images.push_back(  ts.getTile(grid.getCell(j,i)->getTiles().at(0))->getImage() );
+            images.push_back(  grid.getCell(j,i)->getTiles().at(0)->getImage() );
     }
 
     cv::Mat image(images[0].rows * y, images[0].cols * x, images[0].type());

@@ -7,11 +7,7 @@ Grid::Grid(Tileset& ts, int x, int y): xSize(x), ySize(y)
         vector<Cell> row;
         for(int j = 0; j < x; j++) // column
         {
-            vector<string> tiles;
-            for(shared_ptr tile : ts.getTiles())
-            {
-                tiles.push_back(tile->getId());
-            }
+            vector<shared_ptr<Tile>> tiles = ts.getTiles();
             row.push_back(Cell(tiles, j,i, ts));
         }
         cells.push_back(row);
@@ -92,8 +88,8 @@ void Grid::printGridTiles()
             std::cout << "X: " << cell.getX();
             std::cout << " Y: " << cell.getY();
             std::cout << "  :  ";
-            for(string id : cell.getTiles())
-                std::cout << id << " ";
+            for(shared_ptr<Tile> tile : cell.getTiles())
+                std::cout << tile->getId() << " ";
             std::cout << "\n";
         }
     }
