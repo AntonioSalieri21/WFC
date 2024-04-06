@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 
         generator.collapseGrid();
 
-        auto end = std::chrono::high_resolution_clock::now(); // End timer
+        auto end = std::chrono::high_resolution_clock::now(); 
         std::chrono::duration<double> elapsed = end - start;
 
         std::cout << "Time taken to collapse grid: " << elapsed.count() << " seconds\n";
