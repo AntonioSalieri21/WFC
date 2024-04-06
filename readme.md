@@ -38,8 +38,8 @@ https://docs.opencv.org/4.x/d3/d52/tutorial_windows_install.html
 
 Program is launched from bash.
 Syntax of launching:
-> ./WFCGenerator <Tileset name> <grid width> <grid height>
-> Example: ./WFCGenerator circuit 20 20
+* > ./WFCGenerator <Tileset name> <grid width> <grid height>
+* > Example: ./WFCGenerator circuit 20 20
 
 Tileset name is defined by folder name in folder Tiles!
 F.e if you want to use Tileset "circuit" you should create ./Tiles/circuit.
