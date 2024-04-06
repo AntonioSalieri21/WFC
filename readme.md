@@ -75,12 +75,12 @@ After successfully collapsing Grid it is exported as image.png in folder in whic
 Config starts with node "tiles" which contain array of nodes, which contain Tiles of Tileset.\
 Keys of those nodes are perceived as ID for tiles by a program.\
 Those nodes must contain:
-* "address" key with address to a Tile image starting from build directory of a program.\
-* "sides" key with array of 4 elements which contain string description of a Tile image.\
-Each Tile should be divided into 2D grid, where each cell is assigned some symbol to represent it.__ 
+* "address" key with address to a Tile image starting from build directory of a program.
+* "sides" key with array of 4 elements which contain string description of a Tile image.
+Each Tile should be divided into 2D grid, where each cell is assigned some symbol to represent it. 
 F.e image of '+' symbol 3x3 pixels should be divided into grid 3x3, where 1 represents white pixel
-and 0 - black one. Sides are read in clockwise order UP-RIGHT-DOWN-LEFT: ["010", "010", "010", "010]. Any symbols or\ string can be used for side representation, symbol-by-pixel is just recommended for non-symmetrical tile support.\
-* "rotate" key which defines should be rotated by a program (NOTE: it cant diferentiate should tile be rotated two or four\
+and 0 - black one. Sides are read in clockwise order UP-RIGHT-DOWN-LEFT: ["010", "010", "010", "010]. Any symbols or string can be used for side representation, symbol-by-pixel is just recommended for non-symmetrical tile support.
+* "rotate" key which defines should be rotated by a program (NOTE: it cant diferentiate should tile be rotated two or four
 times, which can cause performance issues if done incorrectly, so its recommended to provide rotated tiles beforehand, or\
 avoid using Tiles which can be rotated only two times!).
 
