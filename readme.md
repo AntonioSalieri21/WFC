@@ -1,7 +1,7 @@
 # Project Wave Function Collapse procedure texture generation
 
 This program generates new textures from small samples (Tiles).\
-Read https://github.com/mxgmn/WaveFunctionCollapse for more.\
+Read https://github.com/mxgmn/WaveFunctionCollapse for more.
 
 ## Terminology
 Tile: image with set of rules, which define which tiles are allowed to be neighbours of this one.\
@@ -47,7 +47,7 @@ This folder must contain config.json with Tileset settings!
 
 ## Program functioning and structure.
 
-Program starts with reading config.json in "./Tiles/<Tileset name>/" \
+Program starts with reading config.json in "./Tiles/ Tileset name /" \
 From there it reads tiles: path to their images, their side structure and parameter "rotate", which\
 defines if program should automatically create rotated versions of this tile (see config structure below)\
 After reading config Tileset initializes and saves shared_ptr to each Tile. shared_ptr is used for\
@@ -74,7 +74,7 @@ After successfully collapsing Grid it is exported as image.png in folder in whic
 ## Config structure
 Config starts with node "tiles" which contain array of nodes, which contain Tiles of Tileset.\
 Keys of those nodes are perceived as ID for tiles by a program.\
-Those nodes must contain:\
+Those nodes must contain:
 * "address" key with address to a Tile image starting from build directory of a program.\
 * "sides" key with array of 4 elements which contain string description of a Tile image.\
 Each Tile should be divided into 2D grid, where each cell is assigned some symbol to represent it.__ 
