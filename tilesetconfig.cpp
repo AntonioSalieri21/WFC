@@ -27,21 +27,3 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
 
     return res;
 }
-
-// vector<TileInfo> TilesetConfig::getTilesInfo()
-// {
-//     vector<TileInfo> res;
-
-//     if(config.contains("tiles"))
-//     {
-//         for(const auto& tile : config["tiles"])
-//         {
-//             res.push_back(TileInfo { tile["address"], tile["sides"], tile});
-            
-//         }
-            
-//     }
-
-//     return res;
-// }
-

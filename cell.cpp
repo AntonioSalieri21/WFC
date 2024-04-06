@@ -50,10 +50,11 @@ bool Cell::update(vector<shared_ptr<Tile>> neigh_tiles, int direction)
         }
     }
 
-    if(tiles.size() == new_tiles.size() && std::all_of(new_tiles.begin(), new_tiles.end(), [this](const shared_ptr<Tile>& tile){ return std::find(tiles.begin(), tiles.end(), tile) != tiles.end(); }))
+    if(tiles.size() == new_tiles.size())
         return false;
 
     tiles.assign(new_tiles.begin(), new_tiles.end());
+
     enthropy = tiles.size();
     return true;
 }

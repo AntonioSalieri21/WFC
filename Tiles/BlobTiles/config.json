@@ -8,93 +8,238 @@
         "tile2": {
             "address": "../Tiles/BlobTiles/2.png",
             "sides": ["000", "010", "000", "000"],
-            "rotate": true
+            "rotate": false
         },
         "tile3": {
             "address": "../Tiles/BlobTiles/3.png",
             "sides": ["000", "010", "010", "010"],
-            "rotate": true
+            "rotate": false
         },
         "tile4": {
             "address": "../Tiles/BlobTiles/4.png",
             "sides": ["000", "011", "110", "000"],
-            "rotate": true
+            "rotate": false
         },
         "tile5": {
             "address": "../Tiles/BlobTiles/5.png",
             "sides": ["000", "011", "111", "110"],
-            "rotate": true
+            "rotate": false
         },
         "tile6": {
             "address": "../Tiles/BlobTiles/6.png",
             "sides": ["000", "010", "011", "110"],
-            "rotate": true
+            "rotate": false
         },
         "tile7": {
             "address": "../Tiles/BlobTiles/7.png",
             "sides": ["000", "000", "010", "010"],
-            "rotate": true
+            "rotate": false
         },
         "tile8": {
             "address": "../Tiles/BlobTiles/8.png",
             "sides": ["000", "000", "010", "000"],
-            "rotate": true
+            "rotate": false
         },
         "tile9": {
             "address": "../Tiles/BlobTiles/9.png",
             "sides": ["000", "011", "110", "000"],
-            "rotate": true
+            "rotate": false
         },
         "tile10": {
             "address": "../Tiles/BlobTiles/10.png",
             "sides": ["010", "010", "0011", "110"],
-            "rotate": true
+            "rotate": false
         },
         "tile11": {
             "address": "../Tiles/BlobTiles/11.png",
             "sides": ["011", "111", "110", "010"],
-            "rotate": true
+            "rotate": false
         },
         "tile12": {
             "address": "../Tiles/BlobTiles/12.png",
             "sides": ["111", "111", "111", "111"],
-            "rotate": true
+            "rotate": false
         },
         "tile13": {
             "address": "../Tiles/BlobTiles/13.png",
             "sides": ["110", "011", "111", "111"],
-            "rotate": true
+            "rotate": false
         },
         "tile14": {
             "address": "../Tiles/BlobTiles/14.png",
             "sides": ["010", "000", "011", "110"],
-            "rotate": true
+            "rotate": false
         },
         "tile15": {
             "address": "../Tiles/BlobTiles/15.png",
             "sides": ["010", "010", "010", "000"],
-            "rotate": true
+            "rotate": false
         },
         "tile16": {
             "address": "../Tiles/BlobTiles/16.png",
             "sides": ["011", "110", "010", "010"],
-            "rotate": true
+            "rotate": false
         },
         "tile17": {
             "address": "../Tiles/BlobTiles/17.png",
             "sides": ["110", "011", "110", "011"],
-            "rotate": true
+            "rotate": false
         },
         "tile18": {
             "address": "../Tiles/BlobTiles/18.png",
             "sides": ["011", "111", "111", "110"],
-            "rotate": true
+            "rotate": false
         },
         "tile19": {
             "address": "../Tiles/BlobTiles/19.png",
             "sides": ["111", "111", "111", "111"],
             "rotate": false
+        },
+        "tile20": {
+            "address": "../Tiles/BlobTiles/20.png",
+            "sides": ["111", "110", "011", "111"],
+            "rotate": false
+        },
+        "tile21": {
+            "address": "../Tiles/BlobTiles/21.png",
+            "sides": ["110", "000", "010", "011"],
+            "rotate": false
+        },
+        "tile22": {
+            "address": "../Tiles/BlobTiles/22.png",
+            "sides": ["010", "011", "110", "000"],
+            "rotate": false
+        },
+        "tile23": {
+            "address": "../Tiles/BlobTiles/23.png",
+            "sides": ["010", "011", "111", "110"],
+            "rotate": false
+        },
+        "tile24": {
+            "address": "../Tiles/BlobTiles/24.png",
+            "sides": ["011", "110", "011", "110"],
+            "rotate": false
+        },
+        "tile25": {
+            "address": "../Tiles/BlobTiles/25.png",
+            "sides": ["111", "110", "000", "011"],
+            "rotate": false
+        },
+        "tile26": {
+            "address": "../Tiles/BlobTiles/26.png",
+            "sides": ["111", "110", "010", "011"],
+            "rotate": false
+        },
+        "tile27": {
+            "address": "../Tiles/BlobTiles/27.png",
+            "sides": ["110", "010", "010", "011"],
+            "rotate": false
+        },
+        "tile28": {
+            "address": "../Tiles/BlobTiles/28.png",
+            "sides": ["010", "000", "010", "010"],
+            "rotate": false
+        },
+        "tile29": {
+            "address": "../Tiles/BlobTiles/29.png",
+            "sides": ["011", "111", "110", "000"],
+            "rotate": false
+        },
+        "tile31": {
+            "address": "../Tiles/BlobTiles/31.png",
+            "sides": ["110", "000", "011", "111"],
+            "rotate": false
+        },
+        "tile32": {
+            "address": "../Tiles/BlobTiles/32.png",
+            "sides": ["000", "010", "010", "000"],
+            "rotate": false
+        },
+        "tile33": {
+            "address": "../Tiles/BlobTiles/33.png",
+            "sides": ["010", "000", "000", "010"],
+            "rotate": false
+        },
+        "tile34": {
+            "address": "../Tiles/BlobTiles/34.png",
+            "sides": ["010", "000", "010", "000"],
+            "rotate": false
+        },
+        "tile35": {
+            "address": "../Tiles/BlobTiles/35.png",
+            "sides": ["010", "000", "000", "000"],
+            "rotate": false
+        },
+        "tile36": {
+            "address": "../Tiles/BlobTiles/36.png",
+            "sides": ["011", "110", "010", "000"],
+            "rotate": false
+        },
+        "tile37": {
+            "address": "../Tiles/BlobTiles/37.png",
+            "sides": ["111", "111", "110", "011"],
+            "rotate": false
+        },
+        "tile38": {
+            "address": "../Tiles/BlobTiles/38.png",
+            "sides": ["110", "010", "011", "111"],
+            "rotate": false
+        },
+        "tile39": {
+            "address": "../Tiles/BlobTiles/39.png",
+            "sides": ["010", "010", "010", "010"],
+            "rotate": false
+        },
+        "tile40": {
+            "address": "../Tiles/BlobTiles/40.png",
+            "sides": ["000", "010", "000", "010"],
+            "rotate": false
+        },
+        "tile41": {
+            "address": "../Tiles/BlobTiles/41.png",
+            "sides": ["010", "011", "110", "010"],
+            "rotate": false
+        },
+        "tile42": {
+            "address": "../Tiles/BlobTiles/42.png",
+            "sides": ["000", "000", "011", "110"],
+            "rotate": false
+        },
+        "tile43": {
+            "address": "../Tiles/BlobTiles/43.png",
+            "sides": ["010", "010", "000", "000"],
+            "rotate": false
+        },
+        "tile44": {
+            "address": "../Tiles/BlobTiles/44.png",
+            "sides": ["011", "110", "000", "010"],
+            "rotate": false
+        },
+        "tile45": {
+            "address": "../Tiles/BlobTiles/45.png",
+            "sides": ["110", "010", "000", "011"],
+            "rotate": false
+        },
+        "tile46": {
+            "address": "../Tiles/BlobTiles/46.png",
+            "sides": ["010", "010", "000", "010"],
+            "rotate": false
+        },
+        "tile47": {
+            "address": "../Tiles/BlobTiles/47.png",
+            "sides": ["000", "000", "000", "010"],
+            "rotate": false
+        },
+        "tile48": {
+            "address": "../Tiles/BlobTiles/48.png",
+            "sides": ["011", "110", "000", "000"],
+            "rotate": false
+        },
+        "tile49": {
+            "address": "../Tiles/BlobTiles/49.png",
+            "sides": ["110", "000", "000", "011"],
+            "rotate": false
         }
- 
+
     }
 }

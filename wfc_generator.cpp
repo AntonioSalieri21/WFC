@@ -1,7 +1,8 @@
 #include "wfc_generator.h"
 #include <queue>
-
-using std::queue;
+#include <memory>
+#include <unordered_set>
+using std::queue, std::unordered_set;
 
 WFCGenerator::WFCGenerator(Grid& grid, Tileset& ts): grid(grid), ts(ts) 
 {
@@ -13,14 +14,14 @@ void WFCGenerator::collapseGrid()
     Cell* changed_cell = initGrid();
     int steps = 0;
 
-    while(!grid.isCollapsed())
+    while(true)
     {
 
         updateGrid(changed_cell);
 
         std::cout << "Step: " << steps << "\n";
         steps++;
-        grid.printGridEnthropy();
+        //grid.printGridEnthropy();
         
         changed_cell = collapseLeastEnthropy();
 
@@ -39,25 +40,38 @@ void WFCGenerator::updateGrid(Cell* changed_cell)
     std::queue<Cell*> cells_to_update;
     cells_to_update.push(changed_cell);
 
+    unordered_set<Cell*> visited_cells;
+
     while (!cells_to_update.empty()) {
+        
         Cell* current_cell = cells_to_update.front();
         cells_to_update.pop();
-        grid.printGridEnthropy();
-        std::cout << "\n";
+
+        if(visited_cells.find(current_cell)!= visited_cells.end())
+            continue;
+
+        visited_cells.insert(current_cell);
+
+        // grid.printGridEnthropy();
+        // std::cout << "\n";
+
+        int current_x = current_cell->getX();
+        int current_y = current_cell->getY();
+
         for (int i : const_dir) {
             Cell* neighbor = nullptr;
             switch (i) {
                 case UP:
-                    neighbor = grid.getCell(current_cell->getX(), current_cell->getY()-1);
+                    neighbor = grid.getCell(current_x, current_y-1);
                     break;
                 case RIGHT:
-                    neighbor = grid.getCell(current_cell->getX()+1, current_cell->getY());
+                    neighbor = grid.getCell(current_x+1, current_y);
                     break;
                 case DOWN:
-                    neighbor = grid.getCell(current_cell->getX(), current_cell->getY()+1);
+                    neighbor = grid.getCell(current_x, current_y+1);
                     break;
                 case LEFT:
-                    neighbor = grid.getCell(current_cell->getX()-1, current_cell->getY());
+                    neighbor = grid.getCell(current_x-1, current_y);
                     break;
             }
 

@@ -21,5 +21,11 @@ void ImageGenerator::saveImage(Grid& grid, Tileset& ts, string path)
             images[i * x + j].copyTo(roi);
         }
     }
+
+    if(images[0].rows * y > MAX_IMAGE_SIZE_Y || images[0].cols * x > MAX_IMAGE_SIZE_X)
+    {
+        std::cout << "Size exceeded! Resizing output..." << "\n";
+        cv::resize(image, image, cv::Size(MAX_IMAGE_SIZE_X, MAX_IMAGE_SIZE_Y));
+    }
     cv::imwrite("image.png", image);
 }
