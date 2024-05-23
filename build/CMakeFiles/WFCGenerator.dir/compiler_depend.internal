@@ -1521,6 +1521,7 @@ CMakeFiles/WFCGenerator.dir/main.cpp.o
  /home/salieri/Documents/GitHub/WFC/cell.h
  /home/salieri/Documents/GitHub/WFC/grid.h
  /home/salieri/Documents/GitHub/WFC/image_generator.h
+ /home/salieri/Documents/GitHub/WFC/pattern.h
  /home/salieri/Documents/GitHub/WFC/sides.h
  /home/salieri/Documents/GitHub/WFC/tile.h
  /home/salieri/Documents/GitHub/WFC/tileinfo.h

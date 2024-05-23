@@ -1517,6 +1517,7 @@ CMakeFiles/WFCGenerator.dir/main.cpp.o: /home/salieri/Documents/GitHub/WFC/main.
   /home/salieri/Documents/GitHub/WFC/cell.h \
   /home/salieri/Documents/GitHub/WFC/grid.h \
   /home/salieri/Documents/GitHub/WFC/image_generator.h \
+  /home/salieri/Documents/GitHub/WFC/pattern.h \
   /home/salieri/Documents/GitHub/WFC/sides.h \
   /home/salieri/Documents/GitHub/WFC/tile.h \
   /home/salieri/Documents/GitHub/WFC/tileinfo.h \
@@ -4246,6 +4247,8 @@ CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o: /home/salieri/Documents/GitHub/
 /usr/include/opencv4/opencv2/core/persistence.hpp:
 
 /usr/include/c++/13/x86_64-redhat-linux/bits/c++allocator.h:
+
+/home/salieri/Documents/GitHub/WFC/pattern.h:
 
 /usr/include/c++/13/x86_64-redhat-linux/bits/atomic_word.h:
 

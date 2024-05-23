@@ -329,4 +329,5 @@ CMakeFiles/WFCGenerator.dir/tile.cpp.o: \
  /usr/include/opencv4/opencv2/video/tracking.hpp \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
  /home/salieri/Documents/GitHub/WFC/tileinfo.h \
+ /home/salieri/Documents/GitHub/WFC/pattern.h \
  /home/salieri/Documents/GitHub/WFC/sides.h

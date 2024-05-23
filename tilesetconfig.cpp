@@ -5,53 +5,7 @@
 #include <functional>
 #include <opencv2/core/types.hpp>
 #include <opencv2/opencv.hpp>
-#include <memory>
 
-using std::vector, std::shared_ptr;
-
-class Pattern 
-{
-
-public:
-    vector<vector<int>> grid;
-    vector<string> sides;
-    vector<shared_ptr<Pattern>> neighbors; 
-
-    void generateSides()
-    {
-        // UP
-        for (int i = 0; i < grid[0].size(); ++i) {
-            sides[0] += std::to_string(grid[0][i]);
-        }
-
-        // RIGHT
-        for (int i = 0; i < grid.size(); ++i) {
-            sides[1] += std::to_string(grid[i].back());
-        }
-
-        // DOWN
-        for (int i = 0; i < grid.back().size(); ++i) {
-            sides[2] += std::to_string(grid.back()[i]);
-        }
-
-        // LEFT
-        for (int i = 0; i < grid.size(); ++i) {
-            sides[3] += std::to_string(grid[i].front());
-        }
-    }
-
-    Pattern(vector<vector<int>> grid) : grid(grid)
-    {
-
-        generateSides();
-
-
-    }
-
-    void addNeighbor(std::shared_ptr<Pattern> neighbor) {
-        neighbors.push_back(neighbor);
-    }
-};
 
 double computeSSIM(const cv::Mat& img1, const cv::Mat& img2) //Some image comparing magic here, more robust than hashing 
 {
@@ -195,6 +149,7 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
         int N = grid.size(); // Assuming grid is a square
         int X = overlapSize; // Size of the smaller squares
 
+        //Create patterns
         std::vector<std::shared_ptr<Pattern>> patterns;
 
         for (int i = 0; i <= N - X; ++i) {
@@ -230,6 +185,28 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
             if (i % N != 0) {
                 patterns[i]->addNeighbor(patterns[i - 1]);
             }
+        }
+
+        for (int i = 0; i < patterns.size(); ++i) 
+        {
+            std::vector<cv::Mat> rows;
+            for (int j = 0; j < patterns[i]->grid.size(); ++j) {
+                std::vector<cv::Mat> row;
+                for (int k = 0; k < patterns[i]->grid[j].size(); ++k) {
+                    row.push_back(imageMap[patterns[i]->grid[j][k]]);
+                }
+                cv::Mat rowImage;
+                cv::hconcat(row.data(), row.size(), rowImage);
+                rows.push_back(rowImage);
+            }
+            cv::Mat image;
+            cv::vconcat(rows.data(), rows.size(), image);
+            string imagePath = path + "/tile" + std::to_string(i) + ".png"
+            cv::imwrite(imagePath, image);
+
+            vector<int> 
+
+            res.push_back({imagePath, patterns[i].sides, patterns[i].neighbors, i, true});
         }
 
         

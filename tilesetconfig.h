@@ -6,9 +6,11 @@
 #include <vector>
 #include "tileinfo.h"
 #include "tile.h"
+#include <memory>
+#include "pattern.h"
 
 using json = nlohmann::json;
-using std::string, std::vector;
+using std::string, std::vector, std::shared_ptr;
 
 class TilesetConfig
 {
