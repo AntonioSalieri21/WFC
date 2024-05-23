@@ -1,0 +1,11 @@
+{
+    "type" : "overlap",
+    "texture" : "grass_field.png",
+    "grid_size" : 8,
+    "overlap_size" : 2,
+    "rule_autofill_options":
+    {
+        "repeating" : true,
+        "sphere" : false
+    }
+}
