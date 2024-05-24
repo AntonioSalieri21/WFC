@@ -2,9 +2,6 @@
 #include <queue>
 #include <memory>
 #include <unordered_set>
-#include <future>
-#include <mutex>
-#include <thread>
 using std::queue, std::unordered_set;
 
 WFCGenerator::WFCGenerator(Grid& grid, Tileset& ts): grid(grid), ts(ts) 
@@ -89,6 +86,8 @@ void WFCGenerator::updateGrid(Cell* changed_cell)
         }
     }
 }
+
+
 
 Cell* WFCGenerator::initGrid()
 {

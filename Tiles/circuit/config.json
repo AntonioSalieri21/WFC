@@ -1,5 +1,4 @@
 {
-    "type" : "tile",
     "tiles":{
         "0": {
             "address": "../Tiles/circuit/0.png",

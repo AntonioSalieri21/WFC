@@ -30,6 +30,8 @@ Tileset::Tileset(string config_path): config(config_path)
         tile->generateRules(tiles);
     }
 
+    
+
 }
 
 vector< shared_ptr<Tile> >& Tileset::getTiles()
