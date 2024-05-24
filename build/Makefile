@@ -273,6 +273,30 @@ tile.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/tile.cpp.s
 .PHONY : tile.cpp.s
 
+tileinfo.o: tileinfo.cpp.o
+.PHONY : tileinfo.o
+
+# target to build an object file
+tileinfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/tileinfo.cpp.o
+.PHONY : tileinfo.cpp.o
+
+tileinfo.i: tileinfo.cpp.i
+.PHONY : tileinfo.i
+
+# target to preprocess a source file
+tileinfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/tileinfo.cpp.i
+.PHONY : tileinfo.cpp.i
+
+tileinfo.s: tileinfo.cpp.s
+.PHONY : tileinfo.s
+
+# target to generate assembly for a file
+tileinfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/tileinfo.cpp.s
+.PHONY : tileinfo.cpp.s
+
 tileset.o: tileset.cpp.o
 .PHONY : tileset.o
 
@@ -372,6 +396,9 @@ help:
 	@echo "... tile.o"
 	@echo "... tile.i"
 	@echo "... tile.s"
+	@echo "... tileinfo.o"
+	@echo "... tileinfo.i"
+	@echo "... tileinfo.s"
 	@echo "... tileset.o"
 	@echo "... tileset.i"
 	@echo "... tileset.s"

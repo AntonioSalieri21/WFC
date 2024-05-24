@@ -332,6 +332,7 @@ CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o: \
  /usr/include/opencv4/opencv2/video/tracking.hpp \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
  /home/salieri/Documents/GitHub/WFC/tileinfo.h \
+ /home/salieri/Documents/GitHub/WFC/pattern.h \
  /home/salieri/Documents/GitHub/WFC/tilesetconfig.h \
  /usr/include/nlohmann/json.hpp /usr/include/c++/13/iterator \
  /usr/include/c++/13/bits/stream_iterator.h /usr/include/c++/13/numeric \

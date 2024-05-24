@@ -5,6 +5,8 @@
 #include <functional>
 #include <opencv2/core/types.hpp>
 #include <opencv2/opencv.hpp>
+#include "sides.h"
+#include "tile.h"
 
 
 double computeSSIM(const cv::Mat& img1, const cv::Mat& img2) //Some image comparing magic here, more robust than hashing 
@@ -46,18 +48,14 @@ double computeSSIM(const cv::Mat& img1, const cv::Mat& img2) //Some image compar
 vector<cv::Mat> splitImageIntoGrid(cv::Mat& image, int gridSize) {
     vector<cv::Mat> gridImages;
 
-    // Calculate the size of each sub-image
     int subImageWidth = image.cols / gridSize;
     int subImageHeight = image.rows / gridSize;
 
-    // Loop over the image grid
     for (int y = 0; y < gridSize; ++y) {
         for (int x = 0; x < gridSize; ++x) {
-            // Define the ROI for this grid cell
-            cv::Rect roi(x * subImageWidth, y * subImageHeight, subImageWidth, subImageHeight);
+            cv::Rect square(x * subImageWidth, y * subImageHeight, subImageWidth, subImageHeight);
 
-            // Extract the sub-image and add it to the vector
-            cv::Mat subImage = image(roi);
+            cv::Mat subImage = image(square);
             gridImages.push_back(subImage);
         }
     }
@@ -85,7 +83,7 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
     {
         for(const auto& [key, tile] : config["tiles"].items())
         {
-            res.push_back(TileInfo { tile["address"], tile["sides"], key, tile["rotate"]});
+            res.push_back(TileInfo { tile["address"], tile["sides"], vector<vector<int>>(), key, tile["rotate"]});
         }
     }
     else if(config["type"] == "overlap")
@@ -109,26 +107,18 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
         std::map<int, cv::Mat> imageMap;
         std::map<int, int> countMap;
 
-        for (int i = 0; i < gridImages.size(); ++i) // Count how much same tile appears in the texture
+        for (int i = 0; i < gridImages.size(); i++) // Count how much same tile appears in the texture
         {
-            // Insert the image into the map
             imageMap[i] = gridImages[i];
-
-            // Compare this image to all the other images
             for (int j = 0; j < i; ++j)
             {
                 double ssim = computeSSIM(gridImages[i], gridImages[j]);
-
-                // If the SSIM is above a certain threshold, consider the images to be the same
                 if (ssim > threshold)
                 {
-                    // Increment the count for this image in the count map
                     countMap[j]++;
                     break;
                 }
             }
-
-            // If the image was not similar to any other image, add it to the count map
             if (countMap.find(i) == countMap.end())
             {
                 countMap[i] = 1;
@@ -137,61 +127,91 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
 
         vector<vector<int>> grid(gridSize, vector<int>(gridSize));
 
+        //Creating grid with IDs from tiles
         int i = 0;
         for (auto& row : grid) {
             for (auto& cell : row) {
                 auto it = std::next(imageMap.begin(), i % imageMap.size());
                 cell = it->first;
-                ++i;
+                i++;
             }
         }
 
-        int N = grid.size(); // Assuming grid is a square
-        int X = overlapSize; // Size of the smaller squares
-
         //Create patterns
-        std::vector<std::shared_ptr<Pattern>> patterns;
+        vector<shared_ptr<Pattern>> patterns;
 
-        for (int i = 0; i <= N - X; ++i) {
-            for (int j = 0; j <= N - X; ++j) {
-                std::vector<std::vector<int>> patternGrid;
-                for (int k = i; k < i + X; ++k) {
-                    std::vector<int> row;
-                    for (int l = j; l < j + X; ++l) {
+        for (int i = 0; i <= gridSize - overlapSize; ++i) {
+            for (int j = 0; j <= gridSize - overlapSize; ++j) {
+                vector<vector<int>> patternGrid;
+                for (int k = i; k < i + overlapSize; ++k) {
+                    vector<int> row;
+                    for (int l = j; l < j + overlapSize; ++l) {
                         row.push_back(grid[k][l]);
                     }
                     patternGrid.push_back(row);
                 }
-                auto pattern = std::make_shared<Pattern>(patternGrid);
-                patterns.push_back(pattern);
+                if (!patternGrid.empty()) {
+                    auto pattern = std::make_shared<Pattern>(patternGrid, i);
+                    patterns.push_back(pattern);
+                }
             }
+        }
+
+        for (const auto& pattern : patterns) {
+            std::cout << "Pattern:\n";
+            for (const auto& row : pattern->grid) {
+                for (const auto& cell : row) {
+                    std::cout << cell << ' ';
+                }
+                std::cout << '\n';
+            }
+            std::cout << '\n';
         }
 
         // Add neighbors
-        for (int i = 0; i < patterns.size(); ++i) {
-            // UP
-            if (i >= N) {
-                patterns[i]->addNeighbor(patterns[i - N]);
-            }
-            // RIGHT
-            if ((i + 1) % N != 0) {
-                patterns[i]->addNeighbor(patterns[i + 1]);
-            }
-            // DOWN
-            if (i < patterns.size() - N) {
-                patterns[i]->addNeighbor(patterns[i + N]);
-            }
-            // LEFT
-            if (i % N != 0) {
-                patterns[i]->addNeighbor(patterns[i - 1]);
-            }
+        std::cout << patterns.size() << "\n";
+        //Generate rules
+        for(auto& pattern : patterns)
+        {       
+            for(int dir : const_dir)
+            {
+                    string checkingSide = pattern->sides.at(dir);
+                    int oppositeSide = rotateSide(dir);
+                    bool found = false;
+                    for(auto& possibleNeighbor : patterns)
+                    {
+                        std::cout << reverseString(possibleNeighbor->sides.at(oppositeSide)) << ' ' << checkingSide << '\n';
+                        if(reverseString(possibleNeighbor->sides.at(oppositeSide)) == checkingSide)
+                        {
+                            pattern->addNeighbor(possibleNeighbor->ID, dir);
+                            std::cout << possibleNeighbor->ID << ' ';
+                            found = true;
+                        }
+                    }
+
+                    if(!found) // Reflection method to fill absent sides
+                    {
+                        string checkingSide = pattern->sides.at(oppositeSide); // Use oppositeSide instead of tmpDirection
+
+                        for(auto& possibleNeighbor : patterns)
+                        {
+                            if(reverseString(possibleNeighbor->sides.at(dir)) == checkingSide) // Compare with dir side of possibleNeighbor
+                            {
+                                pattern->addNeighbor(possibleNeighbor->ID, dir);
+                                std::cout << possibleNeighbor->ID << ' ';
+                            }
+                        }
+                    }
+                }
+                std::cout << "\n";
         }
 
+        //Generating image, saving it and creating new pattern
         for (int i = 0; i < patterns.size(); ++i) 
         {
-            std::vector<cv::Mat> rows;
+            vector<cv::Mat> rows;
             for (int j = 0; j < patterns[i]->grid.size(); ++j) {
-                std::vector<cv::Mat> row;
+                vector<cv::Mat> row;
                 for (int k = 0; k < patterns[i]->grid[j].size(); ++k) {
                     row.push_back(imageMap[patterns[i]->grid[j][k]]);
                 }
@@ -201,36 +221,22 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
             }
             cv::Mat image;
             cv::vconcat(rows.data(), rows.size(), image);
-            string imagePath = path + "/tile" + std::to_string(i) + ".png"
+            string imagePath = path + "/tile" + std::to_string(i) + ".png";
             cv::imwrite(imagePath, image);
 
-            vector<int> 
-
-            res.push_back({imagePath, patterns[i].sides, patterns[i].neighbors, i, true});
+            //vector<int> 
+            string ID = std::to_string(i);
+            res.push_back({imagePath, patterns[i]->sides, patterns[i]->neighbors, ID, true});
         }
 
-        
-
-
-
-        
-
-
-        // for (const auto& pattern : patterns) {
-        //     std::cout << "Pattern:\n";
-        //     for (const auto& row : pattern) {
-        //         for (const auto& cell : row) {
-        //             std::cout << cell << ' ';
-        //         }
-        //         std::cout << '\n';
-        //     }
-        //     std::cout << '\n';
-        // }
 
 
 
 
     }
+
+    for(auto t : res)
+        std::cout << t << "\n";
 
     return res;
 }

@@ -23,6 +23,7 @@ public:
 
     vector<TileInfo> getTilesInfo();
     string getGenerationType();
+    
 };
 
 #endif

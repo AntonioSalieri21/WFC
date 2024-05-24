@@ -24,7 +24,7 @@ void WFCGenerator::collapseGrid()
 
         std::cout << "Step: " << steps << "\n";
         steps++;
-        //grid.printGridEnthropy();
+        grid.printGridEnthropy();
         
         changed_cell = collapseLeastEnthropy();
 

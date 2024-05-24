@@ -4,15 +4,25 @@
 #include <vector>
 #include <string>
 #include <memory>
+#include <algorithm>
 
 using std::vector, std::string, std::shared_ptr;
 class Pattern 
 {
 
 public:
+
+    int ID;
     vector<vector<int>> grid;
     vector<string> sides;
-    vector<shared_ptr<Pattern>> neighbors; 
+    vector<vector<int>> neighbors; 
+
+    Pattern(vector<vector<int>> grid, int ID) : grid(grid), ID(ID) {
+        sides = vector<string>(4);
+        neighbors.resize(4);
+        generateSides();
+    }
+    ~Pattern()=default;
 
     void generateSides()
     {
@@ -26,27 +36,24 @@ public:
             sides[1] += std::to_string(grid[i].back());
         }
 
-        // DOWN
-        for (int i = 0; i < grid.back().size(); ++i) {
+        // DOWN (reversed)
+        for (int i = grid.back().size() - 1; i >= 0; --i) {
             sides[2] += std::to_string(grid.back()[i]);
         }
 
-        // LEFT
-        for (int i = 0; i < grid.size(); ++i) {
+        // LEFT (reversed)
+        for (int i = grid.size() - 1; i >= 0; --i) {
             sides[3] += std::to_string(grid[i].front());
         }
     }
 
-    Pattern(vector<vector<int>> grid) : grid(grid)
+    void addNeighbor(int ID, int dir)
     {
+        auto it = std::find(neighbors.at(dir).begin(), neighbors.at(dir).end(), ID);
 
-        generateSides();
-
-
-    }
-
-    void addNeighbor(std::shared_ptr<Pattern> neighbor) {
-        neighbors.push_back(neighbor);
+        if (it == neighbors.at(dir).end()) {
+            neighbors.at(dir).push_back(ID);
+        }
     }
 };
 

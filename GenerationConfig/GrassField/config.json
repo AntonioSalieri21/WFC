@@ -1,7 +1,7 @@
 {
     "type" : "overlap",
-    "texture" : "grass_field.png",
-    "grid_size" : 8,
+    "texture" : "map.png",
+    "grid_size" : 3,
     "overlap_size" : 2,
     "rule_autofill_options":
     {

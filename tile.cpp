@@ -13,12 +13,7 @@ Tile::Tile(TileInfo info) : sides(info.sides), ID(info.ID), address(info.tile_pa
 Tile::~Tile()
 {
 }
-std::string reverseString(const std::string& str) 
-{
-    std::string reversedStr = str;
-    std::reverse(reversedStr.begin(), reversedStr.end());
-    return reversedStr;
-}
+
 void Tile::generateRules(vector<shared_ptr<Tile>>& tiles)
 {
     /*
