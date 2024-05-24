@@ -16,7 +16,7 @@ void WFCGenerator::collapseGrid()
 
     Cell* changed_cell = initGrid();
     int steps = 0;
-
+    grid.printGridEnthropy();
     while(true)
     {
 

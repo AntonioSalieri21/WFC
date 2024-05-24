@@ -55,6 +55,47 @@ public:
             neighbors.at(dir).push_back(ID);
         }
     }
+
+    void rotateClockwise(int steps) {
+        steps = steps % 4;
+        for (int i = 0; i < steps; ++i) {
+            rotateGridClockwise();
+            rotateSidesClockwise();
+            rotateNeighborsClockwise();
+        }
+    }
+
+private:
+    void rotateGridClockwise() {
+        int n = grid.size();
+        int m = grid[0].size();
+        vector<vector<int>> newGrid(m, vector<int>(n));
+
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                newGrid[j][n - 1 - i] = grid[i][j];
+            }
+        }
+        grid = newGrid;
+    }
+
+    void rotateSidesClockwise() {
+        vector<string> newSides(4);
+        newSides[0] = sides[3]; // LEFT -> UP
+        newSides[1] = sides[0]; // UP -> RIGHT
+        newSides[2] = sides[1]; // RIGHT -> DOWN
+        newSides[3] = sides[2]; // DOWN -> LEFT
+        sides = newSides;
+    }
+
+    void rotateNeighborsClockwise() {
+        vector<vector<int>> newNeighbors(4);
+        newNeighbors[0] = neighbors[3]; // LEFT -> UP
+        newNeighbors[1] = neighbors[0]; // UP -> RIGHT
+        newNeighbors[2] = neighbors[1]; // RIGHT -> DOWN
+        newNeighbors[3] = neighbors[2]; // DOWN -> LEFT
+        neighbors = newNeighbors;
+    }
 };
 
 #endif

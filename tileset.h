@@ -27,6 +27,10 @@ public:
 
     vector< shared_ptr<Tile> >& getTiles();
     shared_ptr<Tile> getTile(string ID);
+
+    friend std::ostream& operator<<(std::ostream& os, const Tileset& tileset);
 };
+
+
 
 #endif

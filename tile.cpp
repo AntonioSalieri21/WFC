@@ -6,7 +6,21 @@ Tile::Tile(TileInfo info) : sides(info.sides), ID(info.ID), address(info.tile_pa
     if(!image.data) {
         std::cout << "Could not open or find the image." << std::endl;
     }
-    rules = vector< vector<string> >(4);
+
+    if(info.rules.size() > 0)
+    {
+        for(const auto& rule : info.rules)
+        {
+            vector<string> temp;
+            for(const auto& r : rule)
+            {
+                temp.push_back(std::to_string(r));
+            }
+            rules.push_back(temp);
+        }
+    }
+    else
+        rules = vector< vector<string> >(4);
     std::cout << "ID " << ID << ": " << address << "\n";
 }
 
@@ -49,19 +63,23 @@ string Tile::getId()
     return ID;
 }
 
-std::ostream& Tile::operator<<(std::ostream& os)
+std::ostream& operator<<(std::ostream& os, const Tile& tile)
 {
-    os << ID << ": \n";
-    for(int dir : const_dir)
+    os << "Tile ID: " << tile.ID << "\n";
+    os << "Image Address: " << tile.address << "\n";
+    os << "Sides: ";
+    for(const auto& side : tile.sides)
     {
-        for(string tile:  rules.at(dir))
+        os << side << " ";
+    }
+    os << "\nRules:\n";
+    for(const auto& rule : tile.rules)
+    {
+        for(const auto& r : rule)
         {
-            os << tile << " ";
+            os << r << " ";
         }
         os << "\n";
     }
-    os << std::endl;
-
     return os;
-
 }

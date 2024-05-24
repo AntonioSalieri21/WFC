@@ -42,8 +42,10 @@ Tileset::Tileset(string config_path): config(config_path)
                 
                 if(tile_info.rotate)
                 {
-                    for(shared_ptr<Tile> tile_pointer : rotatePattern(tile_info))
-                        tiles.push_back(tile_pointer);
+                    //for(shared_ptr<Tile> tile_pointer : rotatePattern(tile_info))
+                        //tiles.push_back(tile_pointer);
+
+                    tiles.push_back( std::make_shared<Tile>( tile_info) );
                 }
                 else
                     tiles.push_back( std::make_shared<Tile>( tile_info) );
@@ -190,4 +192,14 @@ vector<shared_ptr<Tile>> Tileset::rotateTile(TileInfo info)
 
     return res;
 
+}
+
+std::ostream& operator<<(std::ostream& os, const Tileset& tileset)
+{
+    os << "Tileset:\n";
+    for(const auto& tile : tileset.tiles)
+    {
+        os << *tile << "\n"; // Assumes Tile class has operator<< defined
+    }
+    return os;
 }

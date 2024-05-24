@@ -8,7 +8,7 @@
 #include "sides.h"
 #include "tile.h"
 
-
+using std::make_shared;
 double computeSSIM(const cv::Mat& img1, const cv::Mat& img2) //Some image comparing magic here, more robust than hashing 
 {
     const double C1 = 6.5025, C2 = 58.5225;
@@ -103,9 +103,10 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
 
         vector<cv::Mat> gridImages = splitImageIntoGrid(texture, gridSize); //Creating grid
 
-        double threshold = 1.0;
+        double threshold = 0.9;
         std::map<int, cv::Mat> imageMap;
         std::map<int, int> countMap;
+        
 
         for (int i = 0; i < gridImages.size(); i++) // Count how much same tile appears in the texture
         {
@@ -139,8 +140,9 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
 
         //Create patterns
         vector<shared_ptr<Pattern>> patterns;
+        int index = 0;
+        for (int i = 0; i <= gridSize - overlapSize; i++) {
 
-        for (int i = 0; i <= gridSize - overlapSize; ++i) {
             for (int j = 0; j <= gridSize - overlapSize; ++j) {
                 vector<vector<int>> patternGrid;
                 for (int k = i; k < i + overlapSize; ++k) {
@@ -151,11 +153,25 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
                     patternGrid.push_back(row);
                 }
                 if (!patternGrid.empty()) {
-                    auto pattern = std::make_shared<Pattern>(patternGrid, i);
+                    auto pattern = std::make_shared<Pattern>(patternGrid, index);
+                    index++;
                     patterns.push_back(pattern);
                 }
             }
         }
+        // vector<shared_ptr<Pattern>> newPatterns;
+
+        // for(auto& pattern : patterns) //Create rotations
+        // {
+        //     for(int i = 1; i < 4; i++)
+        //     {
+        //         shared_ptr<Pattern> newPattern = make_shared<Pattern>(*pattern);
+        //         newPattern->rotateClockwise(i);
+        //         newPatterns.push_back(newPattern);
+        //     }
+        // }
+
+        // patterns.insert(patterns.end(), newPatterns.begin(), newPatterns.end());
 
         for (const auto& pattern : patterns) {
             std::cout << "Pattern:\n";
@@ -168,66 +184,59 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
             std::cout << '\n';
         }
 
-        // Add neighbors
-        std::cout << patterns.size() << "\n";
-        //Generate rules
-        for(auto& pattern : patterns)
-        {       
-            for(int dir : const_dir)
-            {
-                    string checkingSide = pattern->sides.at(dir);
-                    int oppositeSide = rotateSide(dir);
-                    bool found = false;
-                    for(auto& possibleNeighbor : patterns)
-                    {
-                        std::cout << reverseString(possibleNeighbor->sides.at(oppositeSide)) << ' ' << checkingSide << '\n';
-                        if(reverseString(possibleNeighbor->sides.at(oppositeSide)) == checkingSide)
-                        {
-                            pattern->addNeighbor(possibleNeighbor->ID, dir);
-                            std::cout << possibleNeighbor->ID << ' ';
-                            found = true;
-                        }
-                    }
+        // // Add neighbors
+        // std::cout << patterns.size() << "\n";
+        // //Generate rules
+        // for (auto& pattern : patterns) {
+        //     for (int dir : const_dir) {
+        //         string checkingSide = pattern->sides.at(dir);
+        //         int oppositeSide = rotateSide(dir);
+        //         bool found = false;
+        //         for (auto& possibleNeighbor : patterns) {
+        //             //std::cout << "Pattern " << pattern->ID << " side " << dir << " (" << checkingSide << ") vs. Pattern " << possibleNeighbor->ID << " side " << oppositeSide << " (" << reverseString(possibleNeighbor->sides.at(oppositeSide)) << ")\n";
+        //             if (reverseString(possibleNeighbor->sides.at(oppositeSide)) == checkingSide) {
+        //                 pattern->addNeighbor(possibleNeighbor->ID, dir);
+        //                 //std::cout << "Match found: Pattern " << pattern->ID << " side " << dir << " with Pattern " << possibleNeighbor->ID << " side " << oppositeSide << '\n';
+        //                 found = true;
+        //             }
+        //         }
 
-                    if(!found) // Reflection method to fill absent sides
-                    {
-                        string checkingSide = pattern->sides.at(oppositeSide); // Use oppositeSide instead of tmpDirection
+        //         if (!found) {
+        //             string checkingSide = pattern->sides.at(oppositeSide);
+        //             for (auto& possibleNeighbor : patterns) {
+        //                 //std::cout << "Fallback: Pattern " << pattern->ID << " side " << oppositeSide << " (" << checkingSide << ") vs. Pattern " << possibleNeighbor->ID << " side " << dir << " (" << reverseString(possibleNeighbor->sides.at(dir)) << ")\n";
+        //                 if (reverseString(possibleNeighbor->sides.at(oppositeSide)) == checkingSide) {
+        //                     pattern->addNeighbor(possibleNeighbor->ID, dir);
+        //                     //std::cout << "Fallback match: Pattern " << pattern->ID << " side " << oppositeSide << " with Pattern " << possibleNeighbor->ID << " side " << dir << '\n';
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
-                        for(auto& possibleNeighbor : patterns)
-                        {
-                            if(reverseString(possibleNeighbor->sides.at(dir)) == checkingSide) // Compare with dir side of possibleNeighbor
-                            {
-                                pattern->addNeighbor(possibleNeighbor->ID, dir);
-                                std::cout << possibleNeighbor->ID << ' ';
-                            }
-                        }
-                    }
-                }
-                std::cout << "\n";
-        }
 
-        //Generating image, saving it and creating new pattern
-        for (int i = 0; i < patterns.size(); ++i) 
-        {
-            vector<cv::Mat> rows;
-            for (int j = 0; j < patterns[i]->grid.size(); ++j) {
-                vector<cv::Mat> row;
-                for (int k = 0; k < patterns[i]->grid[j].size(); ++k) {
-                    row.push_back(imageMap[patterns[i]->grid[j][k]]);
-                }
-                cv::Mat rowImage;
-                cv::hconcat(row.data(), row.size(), rowImage);
-                rows.push_back(rowImage);
-            }
-            cv::Mat image;
-            cv::vconcat(rows.data(), rows.size(), image);
-            string imagePath = path + "/tile" + std::to_string(i) + ".png";
-            cv::imwrite(imagePath, image);
+        // //Generating image, saving it and creating new pattern
+        // for (int i = 0; i < patterns.size(); ++i) 
+        // {
+        //     vector<cv::Mat> rows;
+        //     for (int j = 0; j < patterns[i]->grid.size(); ++j) {
+        //         vector<cv::Mat> row;
+        //         for (int k = 0; k < patterns[i]->grid[j].size(); ++k) {
+        //             row.push_back(imageMap[patterns[i]->grid[j][k]]);
+        //         }
+        //         cv::Mat rowImage;
+        //         cv::hconcat(row.data(), row.size(), rowImage);
+        //         rows.push_back(rowImage);
+        //     }
+        //     cv::Mat image;
+        //     cv::vconcat(rows.data(), rows.size(), image);
+        //     string imagePath = path + "/tile" + std::to_string(i) + ".png";
+        //     cv::imwrite(imagePath, image);
 
-            //vector<int> 
-            string ID = std::to_string(i);
-            res.push_back({imagePath, patterns[i]->sides, patterns[i]->neighbors, ID, true});
-        }
+        //     //vector<int> 
+        //     string ID = std::to_string(i);
+        //     res.push_back({imagePath, patterns[i]->sides, patterns[i]->neighbors, ID, true});
+        // }
 
 
 

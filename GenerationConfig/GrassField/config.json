@@ -1,7 +1,7 @@
 {
     "type" : "overlap",
-    "texture" : "map.png",
-    "grid_size" : 3,
+    "texture" : "Chess.png",
+    "grid_size" : 8,
     "overlap_size" : 2,
     "rule_autofill_options":
     {

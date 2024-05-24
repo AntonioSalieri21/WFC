@@ -26,7 +26,7 @@ public:
     cv::Mat& getImage(){return image;}
     vector<vector<string>>& getRules(){return rules;}
 
-    std::ostream& operator<<(std::ostream& os);
+    friend std::ostream& operator<<(std::ostream& os, const Tile& tile);
 
 };
 #endif
