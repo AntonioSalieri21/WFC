@@ -12,6 +12,7 @@ using std::string, std::vector;
 class TilesetConfig
 {
     json config;
+    string configPath;
 
 public:
     TilesetConfig(string config_path);

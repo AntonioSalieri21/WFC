@@ -15,7 +15,8 @@ int main(int argc, char *argv[])
 
     int gridWidth = std::stoi(argv[2]);
     int gridHeight = std::stoi(argv[3]);
-    string path = "../Tiles/" + std::string(argv[1]) + "/config.json";
+    //string path = "../Tiles/" + std::string(argv[1]) + "/config.json";
+    string path = std::string(argv[1]);
     Tileset ts(path);
     
     unique_ptr<Grid> grid;
