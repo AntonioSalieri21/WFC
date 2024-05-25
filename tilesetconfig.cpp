@@ -1,15 +1,38 @@
 #include "tilesetconfig.h"
 #include <fstream>
 #include <iostream>
-#include <opencv2/opencv.hpp>
 #include <unordered_map>
 #include <filesystem>
 
 struct MatCompare
 {
-    bool operator()(const cv::Mat& a, const cv::Mat& b) const
+    bool operator()(const std::shared_ptr<cv::Mat>& a_ptr, const std::shared_ptr<cv::Mat>& b_ptr) const
     {
-        return cv::norm(a, b, cv::NORM_L1) != 0;
+        cv::Mat a_resized, b_resized;
+        cv::resize(*a_ptr, a_resized, cv::Size(8, 8), 0, 0, cv::INTER_AREA);
+        cv::resize(*b_ptr, b_resized, cv::Size(8, 8), 0, 0, cv::INTER_AREA);
+
+        cv::Mat a_gray, b_gray;
+        cv::cvtColor(a_resized, a_gray, cv::COLOR_BGR2GRAY);
+        cv::cvtColor(b_resized, b_gray, cv::COLOR_BGR2GRAY);
+
+        uint64_t a_hash = 0, b_hash = 0;
+        double a_mean = cv::mean(a_gray)[0];
+        double b_mean = cv::mean(b_gray)[0];
+
+        for (int i = 0; i < a_gray.rows; ++i)
+        {
+            for (int j = 0; j < a_gray.cols; ++j)
+            {
+                a_hash <<= 1;
+                a_hash |= (a_gray.at<uchar>(i, j) > a_mean) ? 1 : 0;
+
+                b_hash <<= 1;
+                b_hash |= (b_gray.at<uchar>(i, j) > b_mean) ? 1 : 0;
+            }
+        }
+
+        return a_hash != b_hash;
     }
 };
 
@@ -26,29 +49,27 @@ TilesetConfig::TilesetConfig(string config_path)
     file >> config;
 }
 
-vector<vector<cv::Mat>> splitImageIntoTiles(cv::Mat& img, int tileWidth, int tileHeight)
-{
-    vector<vector<cv::Mat>> tiles;
-    int counter = 0;
-    for(int y = 0; y < img.rows; y += tileHeight)
-    {
-        vector<cv::Mat> row;
 
-        for(int x = 0; x < img.cols; x += tileWidth)
-        {
-            cv::Rect roi(x, y, tileWidth, tileHeight);
-            cv::Mat tile = img(roi).clone(); // Ensure the tile is a continuous matrix
-            row.push_back(tile);
+vector<cv::Mat> splitImageIntoGrid(cv::Mat& image, int x, int y) {
+    vector<cv::Mat> gridImages;
 
-            // Save each tile as a separate image
-            std::string filename = "tile_" + std::to_string(counter) + ".png";
-            cv::imwrite(filename, tile);
-            counter++;
+    // Calculate the size of each sub-image
+    int subImageWidth = image.cols / x;
+    int subImageHeight = image.rows / y;
+
+    // Loop over the image grid
+    for (int i = 0; i < y; i++) {
+        for (int j = 0; j < x; j++) {
+            // Define the ROI for this grid cell
+            cv::Rect roi(j * subImageWidth, i * subImageHeight, subImageWidth, subImageHeight);
+
+            // Extract the sub-image and add it to the vector
+            cv::Mat subImage = image(roi);
+            gridImages.push_back(subImage);
         }
-        tiles.push_back(row);
     }
 
-    return tiles;
+    return gridImages;
 }
 
 vector<TileInfo> TilesetConfig::getTilesInfo()
@@ -58,7 +79,7 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
     {
         for(const auto& [key, tile] : config["tiles"].items())
         {
-            res.push_back(TileInfo { tile["address"], tile["sides"], key, tile["rotate"]});
+            res.push_back(TileInfo { tile["address"], tile["sides"], vector<vector<string>>(), key, tile["rotate"]});
         }
     }
     else
@@ -89,56 +110,119 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
         int tileWidth = img.cols / x;
         int tileHeight = img.rows / y;
 
-        vector<vector<cv::Mat>> tiles = splitImageIntoTiles(img, tileWidth, tileHeight);
+        vector<cv::Mat> gridImages = splitImageIntoGrid(img, x , y); //Creating grid
 
-        std::map<cv::Mat, std::pair<int, int>, MatCompare> tileMap;
-        std::vector<std::vector<int>> tileIDs(tiles.size(), std::vector<int>(tiles[0].size()));
-        int nextID = 0;
+        std::map<int, cv::Mat> imageMap;
+        std::map<int, int> countMap;
+        std::vector<std::vector<int>> gridIDs(y, std::vector<int>(x, 0));
 
-        for(int i = 0; i < tiles.size(); ++i)
-        {
-            for(int j = 0; j < tiles[i].size(); ++j)
-            {
-                auto& tile = tiles[i][j];
-                auto it = tileMap.find(tile);
-
-                if(it == tileMap.end())
-                {
-                    tileMap[tile] = {nextID, 1};
-                    tileIDs[i][j] = nextID;
-                    ++nextID;
-                }
-                else
-                {
-                    ++it->second.second;
-                    tileIDs[i][j] = it->second.first;
+        int id = 0;
+        for (int i = 0; i < y; i++) {
+            for (int j = 0; j < x; j++) {
+                cv::Mat tile = gridImages[i * x + j];
+                auto it = std::find_if(imageMap.begin(), imageMap.end(), 
+                    [&tile](const std::pair<int, cv::Mat>& p) { return cv::norm(p.second, tile) == 0; });
+                if (it == imageMap.end()) {
+                    imageMap[id] = tile;
+                    countMap[id] = 1;
+                    gridIDs[i][j] = id;
+                    id++;
+                } else {
+                    countMap[it->first]++;
+                    gridIDs[i][j] = it->first;
                 }
             }
         }
 
-
-        for(auto row : tileIDs)
-        {
-
-            for(auto tile : row)
-            {
-                std::cout << tile << ' ';
+        for (const auto &row : gridIDs) {
+            for (const auto &elem : row) {
+                std::cout << elem << ' ';
             }
             std::cout << '\n';
         }
-        
+        //Generating TileInfo without rules
 
-        
+        std::map<int, TileInfo> tileInfoMap;
+
+        for (const auto& pair : imageMap) {
+            TileInfo info;
+            info.ID = std::to_string(pair.first);
+            info.tile_path = directoryPath + "/tile" + std::to_string(pair.first) + ".png";
+            info.rotate = false;
+            info.rules = vector<vector<string>>(4);
+
+            cv::imwrite(info.tile_path, pair.second);
+            tileInfoMap[pair.first] = info;
+                
+        }
+
+        //Generating rules
+        //1. Generate rules for each tile
+        //2. Fill in empty rules
+        //3. Create rotation of those tiles
+
+        for(int i = 0; i < gridIDs.size(); i++)
+        {
+            auto row = gridIDs[i];
+            for(int j = 0; j < row.size(); j++)
+            {
+                int dirIndex = 0;
+                auto currentTileIter = tileInfoMap.find(row.at(j));
+
+                if (currentTileIter == tileInfoMap.end()) {
+                    continue; // or handle the error
+                }
+
+                for(auto dir : matrix_dir) //Generate rules for each tile
+                {
+                    int neighborI = i + dir.first;
+                    int neighborJ = j + dir.second;
+
+                    if(neighborI >= 0 && neighborI < gridIDs.size() 
+                        && neighborJ >= 0 && neighborJ < row.size())
+                    {
+                        auto neighborTileIter = tileInfoMap.find(gridIDs.at(neighborI).at(neighborJ)); 
+
+                        if (neighborTileIter == tileInfoMap.end()) {
+                            continue; // or handle the error
+                        }
+
+                        currentTileIter->second.rules.at(dirIndex).push_back(neighborTileIter->second.ID);
+                    }
+
+                    dirIndex++;
+                }
+
+                // Check for empty rules
+                for(int dirIndex = 0; dirIndex < currentTileIter->second.rules.size(); dirIndex++)
+                {
+                    if(currentTileIter->second.rules.at(dirIndex).empty())
+                    {
+                        int oppositeSide = (dirIndex + 2) % 4; // Calculate the opposite side
+                        currentTileIter->second.rules.at(dirIndex) = currentTileIter->second.rules.at(oppositeSide); // Copy rules from the opposite side
+
+                        // Update the appropriate side of each neighbor tile
+                        for(string tileID : currentTileIter->second.rules.at(oppositeSide))
+                        {
+                            auto tileIter = tileInfoMap.find(std::stoi(tileID));
+
+                            if (tileIter != tileInfoMap.end()) {
+                                tileIter->second.rules.at(oppositeSide).push_back(currentTileIter->second.ID);
+                            }
+                        }
+                    }
+                }
+            }
+        }         
 
 
 
+        for (auto& pair : tileInfoMap) {
+            res.push_back(pair.second);
+            std::cout << pair.second << "\n";
 
 
-
-
-
-
-
+        }
 
   
     }

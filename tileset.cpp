@@ -5,30 +5,41 @@
 Tileset::Tileset(string config_path): config(config_path)
 {
     vector<TileInfo> tiles_info = config.getTilesInfo();
-    
-    for(TileInfo tile_info : tiles_info)
+    if(tiles_info.at(0).rules.size() == 0)
     {
-        try{
-            
-            if(tile_info.rotate)
-            {
-                for(shared_ptr<Tile> tile_pointer : rotateTile(tile_info))
-                    tiles.push_back(tile_pointer);
-            }
-            else
-                tiles.push_back( std::make_shared<Tile>( tile_info) );
-        }
-        catch(std::exception& e)
+        for(TileInfo tile_info : tiles_info)
         {
-            std::cout << "Catched exception: " << e.what() << "\n";
+            try{
+                
+                if(tile_info.rotate)
+                {
+                    for(shared_ptr<Tile> tile_pointer : rotateTile(tile_info))
+                        tiles.push_back(tile_pointer);
+                }
+                else
+                    tiles.push_back( std::make_shared<Tile>( tile_info) );
+            }
+            catch(std::exception& e)
+            {
+                std::cout << "Catched exception: " << e.what() << "\n";
+            }
         }
+
+        for( shared_ptr<Tile> tile : tiles)
+        {
+            
+            tile->generateRules(tiles);
+        }
+    }
+    else
+    {
+        for(TileInfo tile_info : tiles_info)
+        {
+            tiles.push_back( std::make_shared<Tile>( tile_info) );
+        }
+
     }
 
-    for( shared_ptr<Tile> tile : tiles)
-    {
-        
-        tile->generateRules(tiles);
-    }
 
     
 
@@ -106,9 +117,9 @@ vector<shared_ptr<Tile>> Tileset::rotateTile(TileInfo info)
         sides.push_back(rotate(info.sides, i));
     }
 
-    infos.push_back({first_path,sides.at(1), info.ID + "_rotated90", true });
-    infos.push_back({second_path,sides.at(2), info.ID + "_rotated180", true });
-    infos.push_back({third_path,sides.at(3), info.ID + "_rotated270", true });
+    infos.push_back({first_path,sides.at(1), vector<vector<string>>(), info.ID + "_rotated90", true });
+    infos.push_back({second_path,sides.at(2), vector<vector<string>>(), info.ID + "_rotated180", true });
+    infos.push_back({third_path,sides.at(3), vector<vector<string>>(), info.ID + "_rotated270", true });
 
     std::cout << first_path << std::endl;
 

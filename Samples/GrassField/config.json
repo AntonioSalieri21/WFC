@@ -1,8 +1,8 @@
 {
     "type" : "auto",
-    "path" : "map.png",
-    "x" : 3,
-    "y" : 3,
+    "path" : "map4.png",
+    "x" : 10,
+    "y" : 10,
     "rotate" : true
 
 }

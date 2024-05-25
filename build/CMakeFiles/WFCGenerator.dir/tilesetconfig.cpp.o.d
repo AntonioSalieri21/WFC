@@ -256,10 +256,6 @@ CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o: \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
  /home/salieri/Documents/GitHub/WFC/tileinfo.h \
- /usr/include/c++/13/fstream \
- /usr/include/c++/13/x86_64-redhat-linux/bits/basic_file.h \
- /usr/include/c++/13/x86_64-redhat-linux/bits/c++io.h \
- /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/iostream \
  /usr/include/opencv4/opencv2/opencv.hpp \
  /usr/include/opencv4/opencv2/opencv_modules.hpp \
  /usr/include/opencv4/opencv2/core.hpp \
@@ -324,7 +320,7 @@ CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o: \
  /usr/include/opencv4/opencv2/flann/params.h \
  /usr/include/opencv4/opencv2/flann/any.h \
  /usr/include/opencv4/opencv2/flann/defines.h \
- /usr/include/opencv4/opencv2/flann/saving.h \
+ /usr/include/c++/13/iostream /usr/include/opencv4/opencv2/flann/saving.h \
  /usr/include/opencv4/opencv2/flann/nn_index.h \
  /usr/include/opencv4/opencv2/flann/result_set.h /usr/include/c++/13/set \
  /usr/include/c++/13/bits/stl_set.h \
@@ -392,4 +388,8 @@ CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o: \
  /usr/include/opencv4/opencv2/stitching/detail/camera.hpp \
  /usr/include/opencv4/opencv2/video.hpp \
  /usr/include/opencv4/opencv2/video/tracking.hpp \
- /usr/include/opencv4/opencv2/video/background_segm.hpp
+ /usr/include/opencv4/opencv2/video/background_segm.hpp \
+ /home/salieri/Documents/GitHub/WFC/sides.h /usr/include/c++/13/fstream \
+ /usr/include/c++/13/x86_64-redhat-linux/bits/basic_file.h \
+ /usr/include/c++/13/x86_64-redhat-linux/bits/c++io.h \
+ /usr/include/c++/13/bits/fstream.tcc

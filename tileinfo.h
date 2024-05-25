@@ -10,8 +10,11 @@ struct TileInfo
 
     string tile_path;
     vector<string> sides;
+    vector<vector<string>> rules;
     string ID;
     bool rotate = true;
+
+    friend std::ostream& operator<<(std::ostream& os, const TileInfo& tile);
 
 };
 

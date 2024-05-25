@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/WFCGenerator.dir/sides.cpp.o.d"
   "CMakeFiles/WFCGenerator.dir/tile.cpp.o"
   "CMakeFiles/WFCGenerator.dir/tile.cpp.o.d"
+  "CMakeFiles/WFCGenerator.dir/tileinfo.cpp.o"
+  "CMakeFiles/WFCGenerator.dir/tileinfo.cpp.o.d"
   "CMakeFiles/WFCGenerator.dir/tileset.cpp.o"
   "CMakeFiles/WFCGenerator.dir/tileset.cpp.o.d"
   "CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o"

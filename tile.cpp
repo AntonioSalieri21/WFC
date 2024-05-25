@@ -6,7 +6,10 @@ Tile::Tile(TileInfo info) : sides(info.sides), ID(info.ID), address(info.tile_pa
     if(!image.data) {
         std::cout << "Could not open or find the image." << std::endl;
     }
-    rules = vector< vector<string> >(4);
+    if(info.rules.size() == 0)
+        rules = vector< vector<string> >(4);
+    else
+        rules = info.rules;
     std::cout << "ID " << ID << ": " << address << "\n";
 }
 
