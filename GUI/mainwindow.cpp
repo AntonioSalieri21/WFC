@@ -7,8 +7,7 @@
 #include "image_generator.h"
 #include <memory>
 #include <chrono>
-#include <QFileDialog>
-#include <QFile>
+
 using std::string;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -64,8 +63,10 @@ void MainWindow::setupTabs()
     tab_widget->addTab(generationTab, "Generate");
     setupGenerationTab();
 
-    QWidget *configTab = new QWidget();  // Placeholder for Config tab
+    configTab = new QWidget();  // Placeholder for Config tab
     tab_widget->addTab(configTab, "Config");
+    configTabLayout = new QVBoxLayout();
+    configTab->setLayout(configTabLayout);
     setupConfigTab();
 }
 
@@ -128,12 +129,75 @@ void MainWindow::setupGenerationTab()
 
 void MainWindow::setupConfigTab()
 {
-    QWidget *configTab = tab_widget->widget(1);
-    QVBoxLayout *layout = new QVBoxLayout();
+    if(config["type"] != "auto")
+    {
 
-    // Add widgets to the layout as needed
+        QLabel *infoLabel = new QLabel("Only config for auto generating is available for changing in GUI!");
+        configTabLayout->addWidget(infoLabel);
+    }
+    else
+    {
+        QLabel *imageLabel = new QLabel();
+        QPixmap pixmap(QString::fromStdString(config["path"]));
+        imageLabel->setPixmap(pixmap.scaled(200, 200, Qt::KeepAspectRatio, Qt::SmoothTransformation));  // Scale pixmap to fit in 200x200
+        imageLabel->setFixedSize(200, 200);  // Set fixed size
+        imageLabel->setStyleSheet("border: 1px solid black");  // Add black border
 
-    configTab->setLayout(layout);
+        QHBoxLayout *hLayout = new QHBoxLayout();
+        hLayout->addStretch();
+        hLayout->addWidget(imageLabel);
+        hLayout->addStretch();
+
+        configTabLayout->addLayout(hLayout);
+
+        QPushButton *imageButton = new QPushButton("Open Image");
+        connect(imageButton, &QPushButton::clicked, this, &MainWindow::onImageButtonClicked);
+        configTabLayout->addWidget(imageButton);
+
+        QLineEdit *heightInput = new QLineEdit(QString::number(static_cast<int>(config["y"])));
+        QLineEdit *widthInput = new QLineEdit(QString::number(static_cast<int>(config["x"])));
+        configTabLayout->addWidget(new QLabel("Height:"));
+        configTabLayout->addWidget(heightInput);
+        configTabLayout->addWidget(new QLabel("Width:"));
+        configTabLayout->addWidget(widthInput);
+
+        rotateCheckBox = new QCheckBox("Rotate");
+        rotateCheckBox->setChecked(config["rotate"]);
+        configTabLayout->addWidget(rotateCheckBox);
+
+        QDoubleSpinBox *thresholdSpinBox = new QDoubleSpinBox();
+        thresholdSpinBox->setRange(0, 1);
+        thresholdSpinBox->setValue(config["threshold"]);
+        configTabLayout->addWidget(new QLabel("Threshold:"));
+        configTabLayout->addWidget(thresholdSpinBox);
+
+        QPushButton *saveButton = new QPushButton("Save");
+        connect(saveButton, &QPushButton::clicked, this, &MainWindow::onSaveConfigButtonClicked);
+        configTabLayout->addWidget(saveButton);
+    }
+}
+
+void MainWindow::onImageButtonClicked()
+{
+    QString imagePath = QFileDialog::getOpenFileName(this, tr("Open Image"), "", tr("Images (*.png *.jpg *.bmp)"));
+    if (!imagePath.isEmpty()) {
+        config["path"] = imagePath.toStdString();
+        QPixmap pixmap(imagePath);
+        imageLabel->setPixmap(pixmap.scaled(imageLabel->width(), imageLabel->height(), Qt::KeepAspectRatio));
+    }
+}
+
+void MainWindow::onSaveConfigButtonClicked()
+{
+    config["y"] = heightInput->text().toInt();
+    config["x"] = widthInput->text().toInt();
+    config["rotate"] = rotateCheckBox->isChecked();
+    config["threshold"] = thresholdSpinBox->value();
+
+    // Save config to config.json
+    std::ofstream configFile("config.json");
+    configFile << config.dump(4);
+    configFile.close();
 }
 
 void MainWindow::onConfigSelected(const QString &configPath)
@@ -143,6 +207,15 @@ void MainWindow::onConfigSelected(const QString &configPath)
     std::ifstream file(configPathStd);
     file >> config;
 
+    // Clear the layout of configTab
+    QLayoutItem *item;
+    while ((item = configTabLayout->takeAt(0)) != nullptr) {
+        delete item->widget();
+        delete item;
+    }
+
+    // Call setupConfigTab again to update the configTab
+    setupConfigTab();
 }
 
 void MainWindow::onGenerateButtonClicked()

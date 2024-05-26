@@ -366,7 +366,16 @@ CMakeFiles/WFCGenerator.dir/GUI/mainwindow.cpp.o: \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
  /usr/include/qt5/QtWidgets/QMessageBox \
  /usr/include/qt5/QtWidgets/qmessagebox.h \
- /usr/include/qt5/QtWidgets/qdialog.h /usr/include/c++/13/iostream \
+ /usr/include/qt5/QtWidgets/qdialog.h \
+ /usr/include/qt5/QtWidgets/QFileDialog \
+ /usr/include/qt5/QtWidgets/qfiledialog.h /usr/include/qt5/QtCore/qdir.h \
+ /usr/include/qt5/QtCore/qfileinfo.h /usr/include/qt5/QtCore/qfile.h \
+ /usr/include/qt5/QtCore/qfiledevice.h /usr/include/qt5/QtCore/qurl.h \
+ /usr/include/qt5/QtCore/QFile /usr/include/qt5/QtCore/qfile.h \
+ /usr/include/qt5/QtWidgets/QCheckBox \
+ /usr/include/qt5/QtWidgets/qcheckbox.h \
+ /usr/include/qt5/QtWidgets/QDoubleSpinBox \
+ /usr/include/qt5/QtWidgets/qspinbox.h /usr/include/c++/13/iostream \
  /usr/include/c++/13/fstream \
  /usr/include/c++/13/x86_64-redhat-linux/bits/basic_file.h \
  /usr/include/c++/13/x86_64-redhat-linux/bits/c++io.h \
@@ -509,9 +518,4 @@ CMakeFiles/WFCGenerator.dir/GUI/mainwindow.cpp.o: \
  /usr/include/c++/13/bits/random.tcc \
  /home/salieri/Documents/GitHub/WFC/tileset.h \
  /home/salieri/Documents/GitHub/WFC/grid.h \
- /home/salieri/Documents/GitHub/WFC/image_generator.h \
- /usr/include/qt5/QtWidgets/QFileDialog \
- /usr/include/qt5/QtWidgets/qfiledialog.h /usr/include/qt5/QtCore/qdir.h \
- /usr/include/qt5/QtCore/qfileinfo.h /usr/include/qt5/QtCore/qfile.h \
- /usr/include/qt5/QtCore/qfiledevice.h /usr/include/qt5/QtCore/qurl.h \
- /usr/include/qt5/QtCore/QFile /usr/include/qt5/QtCore/qfile.h
+ /home/salieri/Documents/GitHub/WFC/image_generator.h

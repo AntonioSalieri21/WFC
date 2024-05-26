@@ -325,6 +325,7 @@
   /usr/include/nlohmann/thirdparty/hedley/hedley.hpp \
   /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
   /usr/include/pthread.h \
+  /usr/include/qt5/QtCore/QFile \
   /usr/include/qt5/QtCore/qabstractitemmodel.h \
   /usr/include/qt5/QtCore/qalgorithms.h \
   /usr/include/qt5/QtCore/qarraydata.h \
@@ -340,6 +341,10 @@
   /usr/include/qt5/QtCore/qcontainerfwd.h \
   /usr/include/qt5/QtCore/qcontainertools_impl.h \
   /usr/include/qt5/QtCore/qdatastream.h \
+  /usr/include/qt5/QtCore/qdir.h \
+  /usr/include/qt5/QtCore/qfile.h \
+  /usr/include/qt5/QtCore/qfiledevice.h \
+  /usr/include/qt5/QtCore/qfileinfo.h \
   /usr/include/qt5/QtCore/qflags.h \
   /usr/include/qt5/QtCore/qgenericatomic.h \
   /usr/include/qt5/QtCore/qglobal.h \
@@ -383,6 +388,7 @@
   /usr/include/qt5/QtCore/qsystemdetection.h \
   /usr/include/qt5/QtCore/qtcore-config.h \
   /usr/include/qt5/QtCore/qtypeinfo.h \
+  /usr/include/qt5/QtCore/qurl.h \
   /usr/include/qt5/QtCore/qvariant.h \
   /usr/include/qt5/QtCore/qvarlengtharray.h \
   /usr/include/qt5/QtCore/qvector.h \
@@ -414,7 +420,10 @@
   /usr/include/qt5/QtGui/qtransform.h \
   /usr/include/qt5/QtGui/qvalidator.h \
   /usr/include/qt5/QtGui/qwindowdefs.h \
+  /usr/include/qt5/QtWidgets/QCheckBox \
   /usr/include/qt5/QtWidgets/QComboBox \
+  /usr/include/qt5/QtWidgets/QDoubleSpinBox \
+  /usr/include/qt5/QtWidgets/QFileDialog \
   /usr/include/qt5/QtWidgets/QHBoxLayout \
   /usr/include/qt5/QtWidgets/QLabel \
   /usr/include/qt5/QtWidgets/QLineEdit \
@@ -432,8 +441,10 @@
   /usr/include/qt5/QtWidgets/qaction.h \
   /usr/include/qt5/QtWidgets/qactiongroup.h \
   /usr/include/qt5/QtWidgets/qboxlayout.h \
+  /usr/include/qt5/QtWidgets/qcheckbox.h \
   /usr/include/qt5/QtWidgets/qcombobox.h \
   /usr/include/qt5/QtWidgets/qdialog.h \
+  /usr/include/qt5/QtWidgets/qfiledialog.h \
   /usr/include/qt5/QtWidgets/qframe.h \
   /usr/include/qt5/QtWidgets/qgridlayout.h \
   /usr/include/qt5/QtWidgets/qlabel.h \
@@ -448,6 +459,7 @@
   /usr/include/qt5/QtWidgets/qrubberband.h \
   /usr/include/qt5/QtWidgets/qsizepolicy.h \
   /usr/include/qt5/QtWidgets/qslider.h \
+  /usr/include/qt5/QtWidgets/qspinbox.h \
   /usr/include/qt5/QtWidgets/qstyle.h \
   /usr/include/qt5/QtWidgets/qstyleoption.h \
   /usr/include/qt5/QtWidgets/qtabbar.h \

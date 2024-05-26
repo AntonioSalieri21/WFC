@@ -366,4 +366,13 @@ CMakeFiles/WFCGenerator.dir/WFCGenerator_autogen/mocs_compilation.cpp.o: \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
  /usr/include/qt5/QtWidgets/QMessageBox \
  /usr/include/qt5/QtWidgets/qmessagebox.h \
- /usr/include/qt5/QtWidgets/qdialog.h
+ /usr/include/qt5/QtWidgets/qdialog.h \
+ /usr/include/qt5/QtWidgets/QFileDialog \
+ /usr/include/qt5/QtWidgets/qfiledialog.h /usr/include/qt5/QtCore/qdir.h \
+ /usr/include/qt5/QtCore/qfileinfo.h /usr/include/qt5/QtCore/qfile.h \
+ /usr/include/qt5/QtCore/qfiledevice.h /usr/include/qt5/QtCore/qurl.h \
+ /usr/include/qt5/QtCore/QFile /usr/include/qt5/QtCore/qfile.h \
+ /usr/include/qt5/QtWidgets/QCheckBox \
+ /usr/include/qt5/QtWidgets/qcheckbox.h \
+ /usr/include/qt5/QtWidgets/QDoubleSpinBox \
+ /usr/include/qt5/QtWidgets/qspinbox.h

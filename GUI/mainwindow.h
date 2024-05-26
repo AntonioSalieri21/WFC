@@ -13,6 +13,10 @@
 #include <QLineEdit>
 #include <nlohmann/json.hpp>
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QFile>
+#include <QCheckBox>
+#include <QDoubleSpinBox>
 
 using json = nlohmann::json;
 using std::unique_ptr;
@@ -28,6 +32,8 @@ private slots:
     void onConfigSelected(const QString &configPath);
     void onGenerateButtonClicked();
     void onSaveButtonClicked();
+    void onImageButtonClicked();
+    void onSaveConfigButtonClicked();
 
 private:
     json config;
@@ -38,6 +44,10 @@ private:
     QPushButton* saveButton;
     QLineEdit* widthInput;  
     QLineEdit* heightInput;
+    QCheckBox* rotateCheckBox;
+    QDoubleSpinBox* thresholdSpinBox;
+    QWidget *configTab;
+    QVBoxLayout *configTabLayout;
 
     QVector<QString> configPaths; 
     std::string imagePath; 
