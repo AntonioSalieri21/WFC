@@ -1,0 +1,7 @@
+{
+    "config_paths" : {
+        "1" : "Tiles/circuit/config.json",
+        "2" :"Samples/GrassField/config.json"
+    }
+
+}

@@ -1,3 +1,4 @@
 /home/salieri/Documents/GitHub/WFC/build/CMakeFiles/WFCGenerator.dir
 /home/salieri/Documents/GitHub/WFC/build/CMakeFiles/edit_cache.dir
 /home/salieri/Documents/GitHub/WFC/build/CMakeFiles/rebuild_cache.dir
+/home/salieri/Documents/GitHub/WFC/build/CMakeFiles/WFCGenerator_autogen.dir

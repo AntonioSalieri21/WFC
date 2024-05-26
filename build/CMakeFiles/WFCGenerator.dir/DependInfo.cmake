@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/salieri/Documents/GitHub/WFC/GUI/mainwindow.cpp" "CMakeFiles/WFCGenerator.dir/GUI/mainwindow.cpp.o" "gcc" "CMakeFiles/WFCGenerator.dir/GUI/mainwindow.cpp.o.d"
+  "/home/salieri/Documents/GitHub/WFC/build/WFCGenerator_autogen/mocs_compilation.cpp" "CMakeFiles/WFCGenerator.dir/WFCGenerator_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/WFCGenerator.dir/WFCGenerator_autogen/mocs_compilation.cpp.o.d"
   "/home/salieri/Documents/GitHub/WFC/cell.cpp" "CMakeFiles/WFCGenerator.dir/cell.cpp.o" "gcc" "CMakeFiles/WFCGenerator.dir/cell.cpp.o.d"
   "/home/salieri/Documents/GitHub/WFC/grid.cpp" "CMakeFiles/WFCGenerator.dir/grid.cpp.o" "gcc" "CMakeFiles/WFCGenerator.dir/grid.cpp.o.d"
   "/home/salieri/Documents/GitHub/WFC/image_generator.cpp" "CMakeFiles/WFCGenerator.dir/image_generator.cpp.o" "gcc" "CMakeFiles/WFCGenerator.dir/image_generator.cpp.o.d"

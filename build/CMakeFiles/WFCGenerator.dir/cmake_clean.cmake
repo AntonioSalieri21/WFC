@@ -1,4 +1,11 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/WFCGenerator_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/WFCGenerator_autogen.dir/ParseCache.txt"
+  "WFCGenerator_autogen"
+  "CMakeFiles/WFCGenerator.dir/GUI/mainwindow.cpp.o"
+  "CMakeFiles/WFCGenerator.dir/GUI/mainwindow.cpp.o.d"
+  "CMakeFiles/WFCGenerator.dir/WFCGenerator_autogen/mocs_compilation.cpp.o"
+  "CMakeFiles/WFCGenerator.dir/WFCGenerator_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/WFCGenerator.dir/cell.cpp.o"
   "CMakeFiles/WFCGenerator.dir/cell.cpp.o.d"
   "CMakeFiles/WFCGenerator.dir/grid.cpp.o"

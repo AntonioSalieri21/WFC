@@ -11,7 +11,7 @@
 struct MatCompare
 {
     double threshold = 0.8;
-    bool operator()(const std::shared_ptr<cv::Mat>& a_ptr, const std::shared_ptr<cv::Mat>& b_ptr) const
+    bool operator()(const std::shared_ptr<cv::Mat>& a_ptr, const std::shared_ptr<cv::Mat>& b_ptr) const //Comparing magic here, totaly stolen
     {
         cv::Mat a_gray, b_gray;
         cv::cvtColor(*a_ptr, a_gray, cv::COLOR_BGR2GRAY);
@@ -221,16 +221,19 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
                 }
             }
         }         
-
-        for(auto pair : tileInfoMap)
+        if(rotate)
         {
-            for(int i = 0; i < 4; i++)
+            for(auto pair : tileInfoMap)
             {
-                id++;
-                res.push_back(rotateTileInfo(pair.second, i, std::to_string(id)));
+                for(int i = 0; i < 4; i++)
+                {
+                    id++;
+                    res.push_back(rotateTileInfo(pair.second, i, std::to_string(id)));
+                }
+                    
             }
-                
         }
+
 
         for (auto& pair : tileInfoMap) {
             res.push_back(pair.second);

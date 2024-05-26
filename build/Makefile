@@ -129,6 +129,67 @@ WFCGenerator/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/build
 .PHONY : WFCGenerator/fast
 
+#=============================================================================
+# Target rules for targets named WFCGenerator_autogen
+
+# Build rule for target.
+WFCGenerator_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 WFCGenerator_autogen
+.PHONY : WFCGenerator_autogen
+
+# fast build rule for target.
+WFCGenerator_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator_autogen.dir/build.make CMakeFiles/WFCGenerator_autogen.dir/build
+.PHONY : WFCGenerator_autogen/fast
+
+GUI/mainwindow.o: GUI/mainwindow.cpp.o
+.PHONY : GUI/mainwindow.o
+
+# target to build an object file
+GUI/mainwindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/GUI/mainwindow.cpp.o
+.PHONY : GUI/mainwindow.cpp.o
+
+GUI/mainwindow.i: GUI/mainwindow.cpp.i
+.PHONY : GUI/mainwindow.i
+
+# target to preprocess a source file
+GUI/mainwindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/GUI/mainwindow.cpp.i
+.PHONY : GUI/mainwindow.cpp.i
+
+GUI/mainwindow.s: GUI/mainwindow.cpp.s
+.PHONY : GUI/mainwindow.s
+
+# target to generate assembly for a file
+GUI/mainwindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/GUI/mainwindow.cpp.s
+.PHONY : GUI/mainwindow.cpp.s
+
+WFCGenerator_autogen/mocs_compilation.o: WFCGenerator_autogen/mocs_compilation.cpp.o
+.PHONY : WFCGenerator_autogen/mocs_compilation.o
+
+# target to build an object file
+WFCGenerator_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/WFCGenerator_autogen/mocs_compilation.cpp.o
+.PHONY : WFCGenerator_autogen/mocs_compilation.cpp.o
+
+WFCGenerator_autogen/mocs_compilation.i: WFCGenerator_autogen/mocs_compilation.cpp.i
+.PHONY : WFCGenerator_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+WFCGenerator_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/WFCGenerator_autogen/mocs_compilation.cpp.i
+.PHONY : WFCGenerator_autogen/mocs_compilation.cpp.i
+
+WFCGenerator_autogen/mocs_compilation.s: WFCGenerator_autogen/mocs_compilation.cpp.s
+.PHONY : WFCGenerator_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+WFCGenerator_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/WFCGenerator_autogen/mocs_compilation.cpp.s
+.PHONY : WFCGenerator_autogen/mocs_compilation.cpp.s
+
 cell.o: cell.cpp.o
 .PHONY : cell.o
 
@@ -377,7 +438,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... WFCGenerator_autogen"
 	@echo "... WFCGenerator"
+	@echo "... GUI/mainwindow.o"
+	@echo "... GUI/mainwindow.i"
+	@echo "... GUI/mainwindow.s"
+	@echo "... WFCGenerator_autogen/mocs_compilation.o"
+	@echo "... WFCGenerator_autogen/mocs_compilation.i"
+	@echo "... WFCGenerator_autogen/mocs_compilation.s"
 	@echo "... cell.o"
 	@echo "... cell.i"
 	@echo "... cell.s"

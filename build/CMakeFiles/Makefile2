@@ -72,21 +72,22 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/WFCGenerator.dir/clean
+clean: CMakeFiles/WFCGenerator_autogen.dir/clean
 .PHONY : clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/WFCGenerator.dir
 
 # All Build rule for target.
-CMakeFiles/WFCGenerator.dir/all:
+CMakeFiles/WFCGenerator.dir/all: CMakeFiles/WFCGenerator_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/salieri/Documents/GitHub/WFC/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target WFCGenerator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/salieri/Documents/GitHub/WFC/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target WFCGenerator"
 .PHONY : CMakeFiles/WFCGenerator.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/WFCGenerator.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/salieri/Documents/GitHub/WFC/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/salieri/Documents/GitHub/WFC/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/WFCGenerator.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/salieri/Documents/GitHub/WFC/build/CMakeFiles 0
 .PHONY : CMakeFiles/WFCGenerator.dir/rule
@@ -99,6 +100,32 @@ WFCGenerator: CMakeFiles/WFCGenerator.dir/rule
 CMakeFiles/WFCGenerator.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator.dir/build.make CMakeFiles/WFCGenerator.dir/clean
 .PHONY : CMakeFiles/WFCGenerator.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/WFCGenerator_autogen.dir
+
+# All Build rule for target.
+CMakeFiles/WFCGenerator_autogen.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator_autogen.dir/build.make CMakeFiles/WFCGenerator_autogen.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator_autogen.dir/build.make CMakeFiles/WFCGenerator_autogen.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/salieri/Documents/GitHub/WFC/build/CMakeFiles --progress-num=14 "Built target WFCGenerator_autogen"
+.PHONY : CMakeFiles/WFCGenerator_autogen.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/WFCGenerator_autogen.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/salieri/Documents/GitHub/WFC/build/CMakeFiles 1
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/WFCGenerator_autogen.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/salieri/Documents/GitHub/WFC/build/CMakeFiles 0
+.PHONY : CMakeFiles/WFCGenerator_autogen.dir/rule
+
+# Convenience name for target.
+WFCGenerator_autogen: CMakeFiles/WFCGenerator_autogen.dir/rule
+.PHONY : WFCGenerator_autogen
+
+# clean rule for target.
+CMakeFiles/WFCGenerator_autogen.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WFCGenerator_autogen.dir/build.make CMakeFiles/WFCGenerator_autogen.dir/clean
+.PHONY : CMakeFiles/WFCGenerator_autogen.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

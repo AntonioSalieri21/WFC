@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+49e442a5768817bdb9affe633805e849 CMakeFiles/WFCGenerator_autogen
