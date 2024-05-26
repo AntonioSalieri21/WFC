@@ -32,22 +32,16 @@ private slots:
     void onConfigSelected(const QString &configPath);
     void onGenerateButtonClicked();
     void onSaveButtonClicked();
-    void onImageButtonClicked();
-    void onSaveConfigButtonClicked();
 
 private:
     json config;
-    QTabWidget* tab_widget;
+    QTabWidget* tabWidget;
     QComboBox* configComboBox;
     QLabel* imageLabel;
     QPushButton* generateButton;
     QPushButton* saveButton;
     QLineEdit* widthInput;  
     QLineEdit* heightInput;
-    QCheckBox* rotateCheckBox;
-    QDoubleSpinBox* thresholdSpinBox;
-    QWidget *configTab;
-    QVBoxLayout *configTabLayout;
 
     QVector<QString> configPaths; 
     std::string imagePath; 
@@ -55,7 +49,7 @@ private:
     void setupMenu();
     void setupTabs();
     void setupGenerationTab();
-    void setupConfigTab();
+
 };
 
 #endif // MAINWINDOW_H

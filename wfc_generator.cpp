@@ -21,7 +21,6 @@ void WFCGenerator::collapseGrid()
 
         std::cout << "Step: " << steps << "\n";
         steps++;
-        //grid.printGridEnthropy();
         
         changed_cell = collapseLeastEnthropy();
 
@@ -51,9 +50,6 @@ void WFCGenerator::updateGrid(Cell* changed_cell)
             continue;
 
         visited_cells.insert(current_cell);
-
-        // grid.printGridEnthropy();
-        // std::cout << "\n";
 
         int current_x = current_cell->getX();
         int current_y = current_cell->getY();

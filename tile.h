@@ -14,7 +14,7 @@ class Tile
     cv::Mat image;
     vector<string> sides;
     vector< vector<string> > rules;
-    string address; //DEBUG
+    string address; 
     string ID;
 public:
     Tile(TileInfo info);

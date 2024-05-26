@@ -2,6 +2,7 @@
 #include <iostream>
 #include <unordered_set>
 using std::unordered_set;
+
 Cell::Cell(vector<shared_ptr<Tile>> tiles, int x, int y, Tileset& ts):
  tiles(tiles), enthropy(tiles.size()), 
  x(x), y(y), ts(ts)

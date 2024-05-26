@@ -9,7 +9,7 @@
 #include <opencv2/opencv.hpp>
 #include "sides.h"
 using json = nlohmann::json;
-using std::string, std::vector, std::shared_ptr;
+using std::string, std::vector, std::shared_ptr, std::map;
 
 struct TileTMP
 {
@@ -24,7 +24,7 @@ class TilesetConfig
     string configPath;
 
 public:
-    TilesetConfig(string config_path);
+    TilesetConfig(string configPath);
     ~TilesetConfig() = default;
 
     vector<TileInfo> getTilesInfo();

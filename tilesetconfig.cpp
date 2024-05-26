@@ -8,10 +8,11 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-struct MatCompare
+struct ImageCompare
 {
     double threshold = 0.8;
-    bool operator()(const std::shared_ptr<cv::Mat>& a_ptr, const std::shared_ptr<cv::Mat>& b_ptr) const //Comparing magic here, totaly stolen
+    //Comparing magic here, totaly stolen from ChatGPT because I am not nearly smart enough to come up with this
+    bool operator()(const shared_ptr<cv::Mat>& a_ptr, const shared_ptr<cv::Mat>& b_ptr) const 
     {
         cv::Mat a_gray, b_gray;
         cv::cvtColor(*a_ptr, a_gray, cv::COLOR_BGR2GRAY);
@@ -26,10 +27,10 @@ struct MatCompare
     }
 };
 
-TilesetConfig::TilesetConfig(string config_path)
+TilesetConfig::TilesetConfig(string configPath)
 {
-    std::ifstream file(config_path);
-    configPath = config_path;
+    std::ifstream file(configPath);
+    this->configPath = configPath;
 
     if(file.fail()){
         std::cerr << "Failed to open file." << '\n';
@@ -43,18 +44,15 @@ TilesetConfig::TilesetConfig(string config_path)
 vector<cv::Mat> splitImageIntoGrid(cv::Mat& image, int x, int y) {
     vector<cv::Mat> gridImages;
 
-    // Calculate the size of each sub-image
     int subImageWidth = image.cols / x;
     int subImageHeight = image.rows / y;
 
     // Loop over the image grid
     for (int i = 0; i < y; i++) {
         for (int j = 0; j < x; j++) {
-            // Define the ROI for this grid cell
-            cv::Rect roi(j * subImageWidth, i * subImageHeight, subImageWidth, subImageHeight);
+            cv::Rect subImageSquare(j * subImageWidth, i * subImageHeight, subImageWidth, subImageHeight);
 
-            // Extract the sub-image and add it to the vector
-            cv::Mat subImage = image(roi);
+            cv::Mat subImage = image(subImageSquare);
             gridImages.push_back(subImage);
         }
     }
@@ -65,7 +63,7 @@ vector<cv::Mat> splitImageIntoGrid(cv::Mat& image, int x, int y) {
 vector<TileInfo> TilesetConfig::getTilesInfo()
 {
     vector<TileInfo> res;
-    if(config.contains("tiles"))
+    if(config["type"] != "auto")
     {
         for(const auto& [key, tile] : config["tiles"].items())
         {
@@ -98,47 +96,44 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
         cv::Mat img = cv::imread(path, cv::IMREAD_COLOR); 
 
         //Split image into tiles
-        int tileWidth = img.cols / x;
-        int tileHeight = img.rows / y;
 
         vector<cv::Mat> gridImages = splitImageIntoGrid(img, x , y); //Creating grid
 
-        std::map<int, std::shared_ptr<cv::Mat>> imageMap;
-        std::map<int, int> countMap;
-        std::vector<std::vector<int>> gridIDs(y, std::vector<int>(x, 0));
+        map<int, shared_ptr<cv::Mat>> imageMap;
+        map<int, int> countMap;
+        vector<vector<int>> gridIDs(y, vector<int>(x, 0));
 
         int id = 0;
-        MatCompare comparer;
+        ImageCompare comparer;
         comparer.threshold = threshold;
+
+
 
         for (int i = 0; i < y; i++) {
             for (int j = 0; j < x; j++) {
-                std::shared_ptr<cv::Mat> tile = std::make_shared<cv::Mat>(gridImages[i * x + j]);
+                shared_ptr<cv::Mat> tile = std::make_shared<cv::Mat>(gridImages[i * x + j]);
+
+                //Oh God STL library syntaxis my favorite
+                //Find if the tile is already in the map
                 auto it = std::find_if(imageMap.begin(), imageMap.end(), 
-                    [&tile, &comparer](const std::pair<int, std::shared_ptr<cv::Mat>>& p) { return comparer(p.second, tile); });
+                    [&tile, &comparer](const std::pair<int, shared_ptr<cv::Mat>>& p) { return comparer(p.second, tile); });
                 if (it == imageMap.end()) {
                     imageMap[id] = tile;
                     countMap[id] = 1;
                     gridIDs[i][j] = id;
                     id++;
-                } else {
+                } else { //Also we count the frequency of each tile for enthropy, but I forgot to implement it -\_('-')_/- 
                     countMap[it->first]++;
                     gridIDs[i][j] = it->first;
                 }
             }
         }
 
-        for (const auto &row : gridIDs) {
-            for (const auto &elem : row) {
-                std::cout << elem << ' ';
-            }
-            std::cout << '\n';
-        }
-
         //Generating TileInfo without rules
 
-        std::map<int, TileInfo> tileInfoMap;
+        map<int, TileInfo> tileInfoMap;
 
+        //C++17 thanks for multiplatform filesystem!
         std::filesystem::path directory = directoryPath + "/images";
         if(!std::filesystem::exists(directory)) 
         {
@@ -150,11 +145,9 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
             std::filesystem::create_directories(directory);
         }
 
-        for (const auto& pair : imageMap) {
+        for (auto& pair : imageMap) {
             TileInfo info;
             info.ID = std::to_string(pair.first);
-
-
             info.tile_path = directoryPath + "/images/tile" + std::to_string(pair.first) + ".png";
             info.rotate = false;
             info.rules = vector<vector<string>>(4);
@@ -177,7 +170,7 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
                 auto currentTileIter = tileInfoMap.find(row.at(j));
 
                 if (currentTileIter == tileInfoMap.end()) {
-                    continue; // or handle the error
+                    continue; 
                 }
 
                 for(auto dir : matrix_dir) //Generate rules for each tile
@@ -191,7 +184,7 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
                         auto neighborTileIter = tileInfoMap.find(gridIDs.at(neighborI).at(neighborJ)); 
 
                         if (neighborTileIter == tileInfoMap.end()) {
-                            continue; // or handle the error
+                            continue; 
                         }
 
                         currentTileIter->second.rules.at(dirIndex).push_back(neighborTileIter->second.ID);
@@ -221,7 +214,7 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
                 }
             }
         }         
-        if(rotate)
+        if(rotate) //Create rotation of those tiles
         {
             for(auto pair : tileInfoMap)
             {
