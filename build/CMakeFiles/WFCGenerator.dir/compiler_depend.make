@@ -3854,8 +3854,10 @@ CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o: /home/salieri/Documents/GitHub/
   /usr/include/opencv4/opencv2/flann/saving.h \
   /usr/include/opencv4/opencv2/flann/timer.h \
   /usr/include/opencv4/opencv2/highgui.hpp \
+  /usr/include/opencv4/opencv2/highgui/highgui.hpp \
   /usr/include/opencv4/opencv2/imgcodecs.hpp \
   /usr/include/opencv4/opencv2/imgproc.hpp \
+  /usr/include/opencv4/opencv2/imgproc/imgproc.hpp \
   /usr/include/opencv4/opencv2/imgproc/segmentation.hpp \
   /usr/include/opencv4/opencv2/ml.hpp \
   /usr/include/opencv4/opencv2/ml/ml.inl.hpp \
@@ -4420,6 +4422,8 @@ CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o: /home/salieri/Documents/GitHub/
 
 /home/salieri/Documents/GitHub/WFC/wfc_generator.cpp:
 
+/usr/include/opencv4/opencv2/highgui/highgui.hpp:
+
 /usr/include/c++/13/x86_64-redhat-linux/bits/c++io.h:
 
 /usr/include/c++/13/x86_64-redhat-linux/bits/basic_file.h:
@@ -4879,6 +4883,8 @@ CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o: /home/salieri/Documents/GitHub/
 /usr/include/bits/types/struct_FILE.h:
 
 /usr/include/bits/types/sigset_t.h:
+
+/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:
 
 /usr/include/c++/13/x86_64-redhat-linux/bits/opt_random.h:
 

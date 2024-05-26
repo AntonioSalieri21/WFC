@@ -1,38 +1,28 @@
+
 #include "tilesetconfig.h"
 #include <fstream>
 #include <iostream>
 #include <unordered_map>
 #include <filesystem>
+#include <opencv2/opencv.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 struct MatCompare
 {
+    double threshold = 0.8;
     bool operator()(const std::shared_ptr<cv::Mat>& a_ptr, const std::shared_ptr<cv::Mat>& b_ptr) const
     {
-        cv::Mat a_resized, b_resized;
-        cv::resize(*a_ptr, a_resized, cv::Size(8, 8), 0, 0, cv::INTER_AREA);
-        cv::resize(*b_ptr, b_resized, cv::Size(8, 8), 0, 0, cv::INTER_AREA);
-
         cv::Mat a_gray, b_gray;
-        cv::cvtColor(a_resized, a_gray, cv::COLOR_BGR2GRAY);
-        cv::cvtColor(b_resized, b_gray, cv::COLOR_BGR2GRAY);
+        cv::cvtColor(*a_ptr, a_gray, cv::COLOR_BGR2GRAY);
+        cv::cvtColor(*b_ptr, b_gray, cv::COLOR_BGR2GRAY);
 
-        uint64_t a_hash = 0, b_hash = 0;
-        double a_mean = cv::mean(a_gray)[0];
-        double b_mean = cv::mean(b_gray)[0];
+        cv::Mat ssim_map;
+        cv::compare(a_gray, b_gray, ssim_map, cv::CMP_NE);
 
-        for (int i = 0; i < a_gray.rows; ++i)
-        {
-            for (int j = 0; j < a_gray.cols; ++j)
-            {
-                a_hash <<= 1;
-                a_hash |= (a_gray.at<uchar>(i, j) > a_mean) ? 1 : 0;
+        double ssim_score = 1 - (double)cv::countNonZero(ssim_map) / (a_gray.size().width * a_gray.size().height);
 
-                b_hash <<= 1;
-                b_hash |= (b_gray.at<uchar>(i, j) > b_mean) ? 1 : 0;
-            }
-        }
-
-        return a_hash != b_hash;
+        return ssim_score >= threshold; 
     }
 };
 
@@ -101,6 +91,7 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
         int x = config["x"];
         int y = config["y"];
         bool rotate = config["rotate"];
+        double threshold = config["threshold"];
 
         //Open image
 
@@ -112,16 +103,19 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
 
         vector<cv::Mat> gridImages = splitImageIntoGrid(img, x , y); //Creating grid
 
-        std::map<int, cv::Mat> imageMap;
+        std::map<int, std::shared_ptr<cv::Mat>> imageMap;
         std::map<int, int> countMap;
         std::vector<std::vector<int>> gridIDs(y, std::vector<int>(x, 0));
 
         int id = 0;
+        MatCompare comparer;
+        comparer.threshold = threshold;
+
         for (int i = 0; i < y; i++) {
             for (int j = 0; j < x; j++) {
-                cv::Mat tile = gridImages[i * x + j];
+                std::shared_ptr<cv::Mat> tile = std::make_shared<cv::Mat>(gridImages[i * x + j]);
                 auto it = std::find_if(imageMap.begin(), imageMap.end(), 
-                    [&tile](const std::pair<int, cv::Mat>& p) { return cv::norm(p.second, tile) == 0; });
+                    [&tile, &comparer](const std::pair<int, std::shared_ptr<cv::Mat>>& p) { return comparer(p.second, tile); });
                 if (it == imageMap.end()) {
                     imageMap[id] = tile;
                     countMap[id] = 1;
@@ -140,20 +134,33 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
             }
             std::cout << '\n';
         }
+
         //Generating TileInfo without rules
 
         std::map<int, TileInfo> tileInfoMap;
 
+        std::filesystem::path directory = directoryPath + "/images";
+        if(!std::filesystem::exists(directory)) 
+        {
+           std::filesystem::create_directories(directory);
+        }
+        else
+        {
+            std::filesystem::remove_all(directory);
+            std::filesystem::create_directories(directory);
+        }
+
         for (const auto& pair : imageMap) {
             TileInfo info;
             info.ID = std::to_string(pair.first);
-            info.tile_path = directoryPath + "/tile" + std::to_string(pair.first) + ".png";
+
+
+            info.tile_path = directoryPath + "/images/tile" + std::to_string(pair.first) + ".png";
             info.rotate = false;
             info.rules = vector<vector<string>>(4);
 
-            cv::imwrite(info.tile_path, pair.second);
+            cv::imwrite(info.tile_path, *pair.second);
             tileInfoMap[pair.first] = info;
-                
         }
 
         //Generating rules
@@ -227,13 +234,9 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
 
         for (auto& pair : tileInfoMap) {
             res.push_back(pair.second);
-            std::cout << pair.second << "\n";
-
-
         }
-
-  
     }
 
     return res;
 }
+

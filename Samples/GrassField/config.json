@@ -3,6 +3,7 @@
     "path" : "map4.png",
     "x" : 10,
     "y" : 10,
-    "rotate" : true
+    "rotate" : true,
+    "threshold" : 0.9
 
 }

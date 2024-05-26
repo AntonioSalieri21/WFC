@@ -392,4 +392,6 @@ CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o: \
  /home/salieri/Documents/GitHub/WFC/sides.h /usr/include/c++/13/fstream \
  /usr/include/c++/13/x86_64-redhat-linux/bits/basic_file.h \
  /usr/include/c++/13/x86_64-redhat-linux/bits/c++io.h \
- /usr/include/c++/13/bits/fstream.tcc
+ /usr/include/c++/13/bits/fstream.tcc \
+ /usr/include/opencv4/opencv2/imgproc/imgproc.hpp \
+ /usr/include/opencv4/opencv2/highgui/highgui.hpp
