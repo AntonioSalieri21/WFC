@@ -215,7 +215,15 @@ vector<TileInfo> TilesetConfig::getTilesInfo()
             }
         }         
 
-
+        for(auto pair : tileInfoMap)
+        {
+            for(int i = 0; i < 4; i++)
+            {
+                id++;
+                res.push_back(rotateTileInfo(pair.second, i, std::to_string(id)));
+            }
+                
+        }
 
         for (auto& pair : tileInfoMap) {
             res.push_back(pair.second);
